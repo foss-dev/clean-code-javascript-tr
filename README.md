@@ -912,7 +912,7 @@ her erişimciyi aramanız ve değiştirmeniz gerekmez.
 * `set` işlemi yaparken doğrulama eklemeyi kolaylaştırır.
 * İç temsili kapsüller.
 * Set ve Get işlemlerini gerçekleştirirken kayıt tutmayı (log) ve hata yakalamayı eklemek kolaydır.
-* Mesela nesnenizin özelliklerini sunucudan alırken Lazy Load kullanabilirsiniz.
+* Nesnenizin özelliklerini sunucudan alırken Lazy Load kullanabilirsiniz.
 
 
 **Kötü:**
