@@ -901,105 +901,104 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-## **Objects and Data Structures**
-### Use getters and setters
-Using getters and setters to access data on objects could be better than simply
-looking for a property on an object. "Why?" you might ask. Well, here's an
-unorganized list of reasons why:
+## **Nesneler ve Veri Yapıları**
+### Setter ve Getter kullanın
+Nesnelerdeki verilere erişmek için Setter ve Getter kullanmak sadece bir nesnedeki 
+özellikleri aramaktan daha iyi olabilir. "Neden?" diye soracaksınız. Peki, işte burada
+sebeplerinin bir listesi var:
 
-* When you want to do more beyond getting an object property, you don't have
-to look up and change every accessor in your codebase.
-* Makes adding validation simple when doing a `set`.
-* Encapsulates the internal representation.
-* Easy to add logging and error handling when getting and setting.
-* You can lazy load your object's properties, let's say getting it from a
-server.
+* Bir nesne özelliğini elde etmekten daha fazla şey yapmak istediğinizde kod tabanınızdaki
+her erişimciyi aramanız ve değiştirmeniz gerekmez.
+* `set` işlemi yaparken doğrulama eklemeyi kolaylaştırır.
+* İç temsili kapsüller.
+* Set ve Get işlemlerini gerçekleştirirken kayıt tutmayı (log) ve hata yakalamayı eklemek kolaydır.
+* Mesela nesnenizin özelliklerini sunucudan alırken Lazy Load kullanabilirsiniz.
 
 
 **Kötü:**
 ```javascript
-function makeBankAccount() {
+function bankaHesabiOlustur() {
   // ...
 
   return {
-    balance: 0,
+    bakiye: 0,
     // ...
   };
 }
 
-const account = makeBankAccount();
-account.balance = 100;
+const hesap = bankaHesabiOlustur();
+hesap.bakiye = 100;
 ```
 
 **İyi:**
 ```javascript
-function makeBankAccount() {
-  // this one is private
-  let balance = 0;
+function bankaHesabiOlustur() {
+  // bu private
+  let bakiye = 0;
 
-  // a "getter", made public via the returned object below
-  function getBalance() {
-    return balance;
+  //Getter aşağıda döndürülen nesne aracılığıyla public hale getirildi
+  function getBakiye() {
+    return bakiye;
   }
 
-  // a "setter", made public via the returned object below
-  function setBalance(amount) {
-    // ... validate before updating the balance
-    balance = amount;
+  // Setter aşağıda döndürülen nesne aracılığıyla public hale getirildi
+  function setBakiye(deger) {
+    // ... bakiyeyi güncellemeden önce onaylar
+    bakiye = deger;
   }
 
   return {
     // ...
-    getBalance,
-    setBalance,
+    getBakiye,
+    setBakiye,
   };
 }
 
-const account = makeBankAccount();
-account.setBalance(100);
+const hesap = bankaHesabiOlustur();
+hesap.setBakiye(100);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
 
-### Make objects have private members
-This can be accomplished through closures (for ES5 and below).
+### Nesnelerin private üyelere sahip olmasını sağlayın.
+Bu, kapamalarla(closures) gerçekleştirilebilir. (ES5 ve altı için).
 
 **Kötü:**
 ```javascript
 
-const Employee = function(name) {
-  this.name = name;
+const Calisan = function(isim) {
+  this.isim = isim;
 };
 
-Employee.prototype.getName = function getName() {
-  return this.name;
+Calisan.prototype.getIsim = function getIsim() {
+  return this.isim;
 };
 
-const employee = new Employee('John Doe');
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
-delete employee.name;
-console.log(`Employee name: ${employee.getName()}`); // Employee name: undefined
+const calisan = new calisan('John Doe');
+console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
+delete calisan.isim;
+console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: undefined
 ```
 
 **İyi:**
 ```javascript
-function makeEmployee(name) {
+function calisanOlustur(isim) {
   return {
-    getName() {
-      return name;
+    getIsim() {
+      return isim;
     },
   };
 }
 
-const employee = makeEmployee('John Doe');
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
-delete employee.name;
-console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
+const calisan = calisanOlustur('John Doe');
+console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
+delete calisan.isim;
+console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
 ```
 **[⬆ en başa dön](#içindekiler)**
 
 
-## **Classes**
+## **Sınıflar**
 ### Prefer ES2015/ES6 classes over ES5 plain functions
 It's very difficult to get readable class inheritance, construction, and method
 definitions for classical ES5 classes. If you need inheritance (and be aware
