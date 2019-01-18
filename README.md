@@ -227,20 +227,16 @@ createMenu({
 **[⬆ en başa dön](#içindekiler)**
 
 
-### Functions should do one thing
-This is by far the most important rule in software engineering. When functions
-do more than one thing, they are harder to compose, test, and reason about.
-When you can isolate a function to just one action, they can be refactored
-easily and your code will read much cleaner. If you take nothing else away from
-this guide other than this, you'll be ahead of many developers.
+### Fonksiyonlar tek bir şey yapmalı
+Bu yazılım mühendisliğinde en önemli kuraldır. Fonksiyonlar birden fazla iş yaptığında, onları düzenlemek, test etmek ve hakkında fikir sahibi olmak oldukça zorlaşır. Bir fonksiyonu izole ettiğinizde, daha kolay refactor edilebilir ve daha temiz, okunabilir bir kod haline gelir. Bu kılavuzdan aldığınız tek bilgi bu olsa bile birçok geliştiricinin önde olacaksınız.
 
 **Kötü:**
 ```javascript
-function emailClients(clients) {
-  clients.forEach((client) => {
-    const clientRecord = database.lookup(client);
-    if (clientRecord.isActive()) {
-      email(client);
+function musterilereMailYolla(musteriler) {
+  musteriler.forEach((musteri) => {
+    const musteriKaydi = database.sorgula(musteri);
+    if (musteriKaydi.aktifMi()) {
+      email(musteri);
     }
   });
 }
@@ -248,15 +244,15 @@ function emailClients(clients) {
 
 **İyi:**
 ```javascript
-function emailActiveClients(clients) {
-  clients
-    .filter(isActiveClient)
+function aktifMusterilereEmailGonder(musteriler) {
+  musteriler
+    .filter(aktifMusteriMi)
     .forEach(email);
 }
 
-function isActiveClient(client) {
-  const clientRecord = database.lookup(client);
-  return clientRecord.isActive();
+function aktifMusteriMi(musteri) {
+  const musteriKaydi = database.sorgula(cliemusterint);
+  return musteriKaydi.aktifMi();
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
