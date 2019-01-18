@@ -39,7 +39,7 @@ const yyyymmdstr = moment().format('YYYY/MM/DD');
 ```javascript
 const mevcutTarih = moment().format('YYYY/MM/DD');
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Aynı türde değişkenler için aynı kelimeleri kullanın
 
@@ -54,7 +54,7 @@ musteriKayitlariGetir();
 ```javascript
 kullaniciGetir();
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Aranabilir isimler kullanın
 Yazacağımızdan daha fazla kod okuyacağız. Bu yazdığımız kodun okunabilir ve aranabilir olması açısından önemlidir. Değişkenleri kötü bir şekilde adlandırmayarak programımızı anlamaya çalışan kod okuyucularına zarar vermeyiz. İsimleri aranabilir yapın. [buddy.js](https://github.com/danielstjules/buddy.js) ve [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md) gibi araçlar tanımlanmamış sabit değerleri constant olarak tanımlamanıza yardımcı olabilir.
@@ -74,7 +74,7 @@ const BIR_GUNDEKI_MILISANIYELER = 86400000;
 setTimeout(havalandirmayiCalistir, BIR_GUNDEKI_MILISANIYELER);
 
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Açıklayıcı değişkenler kullanın
 **Kötü:**
@@ -91,7 +91,7 @@ const sehirPostaKoduRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 const [, sehir, postaKodu] = adres.match(sehirPostaKoduRegex) || [];
 sehirPostaKodunuKaydet(sehir, postaKodu);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Zihinsel Haritalamadan Kaçının
 Açık olan kapalı olandan daha iyidir
@@ -122,7 +122,7 @@ lokasyonlar.forEach((lokasyon) => {
   oneCikar(lokasyon);
 });
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Gereksiz içerik eklemeyin
 Eğer sınıf ya da nesne adından ne yaptığı anlaşılıyorsa, tekrar olarak değişkenler içinde onu anlatan isimlendirmeler yapmayın.
@@ -152,7 +152,7 @@ function arabayiBoya(araba) {
   araba.renk = 'Kırmızı';
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Kısa Mantıksal İfadeler ya da Koşullar Yerine Varsayılan Argümanlar Kullanın
 Varsayılan argümanlar çoğunlukla kısa mantıksa ifadelerden daha temiz bir kullanıma sahiptir. Varsayılan argümanların sadece undefined argümanlar geçerliyse çalışacağını unutmayın. Diğer falsy olarak kabul edilen değerler varsayılan argümanı değiştirecektir. Bunlar `''`, `""`, `false`, `null`, `0`, ve `NaN` olarak gösterilebilir.
@@ -173,7 +173,7 @@ function fabrikaOlustur(isim = 'Önceki Yazılımcı AŞ') {
 }
 
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **Fonksiyonlar**
 ### Fonksiyon Argümanları (İdeal olanı 2 ya da daha az)
@@ -224,7 +224,7 @@ createMenu({
   cancellable: true
 });
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ### Functions should do one thing
@@ -259,7 +259,7 @@ function isActiveClient(client) {
   return clientRecord.isActive();
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Function names should say what they do
 
@@ -284,7 +284,7 @@ function addMonthToDate(month, date) {
 const date = new Date();
 addMonthToDate(1, date);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Functions should only be one level of abstraction
 When you have more than one level of abstraction your function is usually
@@ -352,7 +352,7 @@ function lexer(tokens) {
   return ast;
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Remove duplicate code
 Do your absolute best to avoid duplicate code. Duplicate code is bad because it
@@ -434,7 +434,7 @@ function showEmployeeList(employees) {
   });
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Set default objects with Object.assign
 
@@ -480,7 +480,7 @@ function createMenu(config) {
 
 createMenu(menuConfig);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ### Don't use flags as function parameters
@@ -507,7 +507,7 @@ function createTempFile(name) {
   createFile(`./temp/${name}`);
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid Side Effects (part 1)
 A function produces a side effect if it does anything other than take a value in
@@ -552,7 +552,7 @@ const newName = splitIntoFirstAndLastName(name);
 console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid Side Effects (part 2)
 In JavaScript, primitives are passed by value and objects/arrays are passed by
@@ -601,7 +601,7 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Don't write to global functions
 Polluting globals is a bad practice in JavaScript because you could clash with another
@@ -631,7 +631,7 @@ class SuperArray extends Array {
   }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Favor functional programming over imperative programming
 JavaScript isn't a functional language in the way that Haskell is, but it has
@@ -685,7 +685,7 @@ const totalOutput = programmerOutput
   .map(output => output.linesOfCode)
   .reduce((totalLines, lines) => totalLines + lines);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Encapsulate conditionals
 
@@ -706,7 +706,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid negative conditionals
 
@@ -731,7 +731,7 @@ if (isDOMNodePresent(node)) {
   // ...
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid conditionals
 This seems like an impossible task. Upon first hearing this, most people say,
@@ -787,7 +787,7 @@ class Cessna extends Airplane {
   }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid type-checking (part 1)
 JavaScript is untyped, which means your functions can take any type of argument.
@@ -812,7 +812,7 @@ function travelToTexas(vehicle) {
   vehicle.move(this.currentLocation, new Location('texas'));
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid type-checking (part 2)
 If you are working with basic primitive values like strings and integers,
@@ -843,7 +843,7 @@ function combine(val1, val2) {
   return val1 + val2;
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Don't over-optimize
 Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
@@ -868,7 +868,7 @@ for (let i = 0; i < list.length; i++) {
   // ...
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Remove dead code
 Dead code is just as bad as duplicate code. There's no reason to keep it in
@@ -899,7 +899,7 @@ function newRequestModule(url) {
 const req = newRequestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **Objects and Data Structures**
 ### Use getters and setters
@@ -958,7 +958,7 @@ function makeBankAccount() {
 const account = makeBankAccount();
 account.setBalance(100);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ### Make objects have private members
@@ -996,7 +996,7 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 delete employee.name;
 console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ## **Classes**
@@ -1073,7 +1073,7 @@ class Human extends Mammal {
   speak() { /* ... */ }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ### Use method chaining
@@ -1152,7 +1152,7 @@ const car = new Car('Ford','F-150','red')
   .setColor('pink')
   .save();
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Prefer composition over inheritance
 As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
@@ -1218,7 +1218,7 @@ class Employee {
   // ...
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **SOLID**
 ### Single Responsibility Principle (SRP)
@@ -1276,7 +1276,7 @@ class UserSettings {
   }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Open/Closed Principle (OCP)
 As stated by Bertrand Meyer, "software entities (classes, modules, functions,
@@ -1363,7 +1363,7 @@ class HttpRequester {
   }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Liskov Substitution Principle (LSP)
 This is a scary term for a very simple concept. It's formally defined as "If S
@@ -1478,7 +1478,7 @@ function renderLargeShapes(shapes) {
 const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
 renderLargeShapes(shapes);
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Interface Segregation Principle (ISP)
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
@@ -1553,7 +1553,7 @@ const $ = new DOMTraverser({
   }
 });
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Dependency Inversion Principle (DIP)
 This principle states two essential things:
@@ -1648,7 +1648,7 @@ class InventoryRequesterV2 {
 const inventoryTracker = new InventoryTracker(['apples', 'bananas'], new InventoryRequesterV2());
 inventoryTracker.requestItems();
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **Testing**
 Testing is more important than shipping. If you have no tests or an
@@ -1715,7 +1715,7 @@ describe('MakeMomentJSGreatAgain', () => {
   });
 });
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **Concurrency**
 ### Use Promises, not callbacks
@@ -1760,7 +1760,7 @@ get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
   });
 
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Async/Await are even cleaner than Promises
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
@@ -1802,7 +1802,7 @@ async function getCleanCodeArticle() {
   }
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ## **Error Handling**
@@ -1875,7 +1875,7 @@ getdata()
   });
 ```
 
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ## **Formatting**
@@ -1922,7 +1922,7 @@ function restoreDatabase() {}
 class Animal {}
 class Alpaca {}
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 
 ### Function callers and callees should be close
@@ -2008,7 +2008,7 @@ const review = new PerformanceReview(employee);
 review.perfReview();
 ```
 
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## **Comments**
 ### Only comment things that have business logic complexity.
@@ -2052,7 +2052,7 @@ function hashIt(data) {
 }
 
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Don't leave commented out code in your codebase
 Version control exists for a reason. Leave old code in your history.
@@ -2069,7 +2069,7 @@ doStuff();
 ```javascript
 doStuff();
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Don't have journal comments
 Remember, use version control! There's no need for dead code, commented code,
@@ -2094,7 +2094,7 @@ function combine(a, b) {
   return a + b;
 }
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ### Avoid positional markers
 They usually just add noise. Let the functions and variable names along with the
@@ -2129,7 +2129,7 @@ const actions = function() {
   // ...
 };
 ```
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
 
 ## Translation
 
@@ -2153,4 +2153,4 @@ This is also available in other languages:
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**:
   [frappacchio/clean-code-javascript/](https://github.com/frappacchio/clean-code-javascript/)
 
-**[⬆ en başa dön](#icindekiler)**
+**[⬆ en başa dön](#içindekiler)**
