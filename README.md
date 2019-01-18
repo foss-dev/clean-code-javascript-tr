@@ -901,41 +901,41 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-## **Nesneler ve Veri Yapıları**
-### Get ve Set erişimcilerini Kullanın.
-Nesne üzerindeki veriye ulaşmak için erişim belirleyicilerini kullanmak ,
-basitçe nesne üzerinde bir özelliği aramaktan daha iyidir. 
-"Neden?" diye sorabilirsin.O halde sana neden olabileceğini gösteren düzensiz bir liste:
+## **Objects and Data Structures**
+### Use getters and setters
+Using getters and setters to access data on objects could be better than simply
+looking for a property on an object. "Why?" you might ask. Well, here's an
+unorganized list of reasons why:
 
-* Bir nesnenin özelliğini elde etmenin ötesinde daha fazlasını yapmak istiyorsan,tüm koda bakıp
-her erişimciyi değiştirmene gerek yok.
-* `set` kullandığında,doğrulama eklemesi kolaylaşır.
-* Dahili tasarımı kapsüller.
-* Get ve Set erişimcilerini kullandığıngda raporlama ve hata denetimi kolaylaşır.
-* Nesne özelliklerini, sadece kullanılacağı zaman çalışmasını sağlayabilirsin,örnek olarak
-onu sunucudan almak.
+* When you want to do more beyond getting an object property, you don't have
+to look up and change every accessor in your codebase.
+* Makes adding validation simple when doing a `set`.
+* Encapsulates the internal representation.
+* Easy to add logging and error handling when getting and setting.
+* You can lazy load your object's properties, let's say getting it from a
+server.
 
 
 **Kötü:**
 ```javascript
-function bankaHesapOlustur() {
+function makeBankAccount() {
   // ...
 
   return {
-    bakiye: 0,
+    balance: 0,
     // ...
   };
 }
 
-const hesap = bankaHesapOlustur();
-hesap.bakiye = 100;
+const account = makeBankAccount();
+account.balance = 100;
 ```
 
 **İyi:**
 ```javascript
-function bankaHesapOlustur() {
-  // bu özellik gizli.
-  let bakiye = 0;
+function makeBankAccount() {
+  // this one is private
+  let balance = 0;
 
   // a "getter", made public via the returned object below
   function getBalance() {
@@ -1718,9 +1718,9 @@ describe('MakeMomentJSGreatAgain', () => {
 **[⬆ en başa dön](#içindekiler)**
 
 ## **Eşzamanlılık**
-### Callback yerine Promise kullanın
+### Promiseleri kullan,Callbackleri değil.
 Callbackler kusursuz değildir , ve aşırı miktarda iç içe geçmeye neden olurlar. ES2015/ES6
-ile birlikte Promiseler bir yerleşik evrensel tiptir.. Onları kullan!
+ile birlikte Promiseler bir yerleşik evrensel tiptir. Onları kullan!
 
 **Kötü:**
 ```javascript
