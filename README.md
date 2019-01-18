@@ -504,7 +504,7 @@ function dosyaOlustur(isim) {
 }
 
 function geciciDosyaOlustur(isim) {
-  createFile(`./temp/${isim}`);
+  dosyaOlustur(`./temp/${isim}`);
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
