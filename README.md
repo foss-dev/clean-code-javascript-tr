@@ -269,7 +269,7 @@ function tariheEkle(tarih, ay) {
   // ...
 }
 
-const date = new Date();
+const tarih = new Date();
 
 // Fonksiyonun adına bakarak neyin nereye eklendiğini söylemek zor
 tariheEkle(tarih, 1);
@@ -281,7 +281,7 @@ function tariheAyEkle(ay, tarih) {
   // ...
 }
 
-const date = new Date();
+const tarih = new Date();
 tariheAyEkle(1, tarih);
 ```
 **[⬆ en başa dön](#içindekiler)**
