@@ -1712,25 +1712,25 @@ describe('MakeMomentJSGreatAgain', () => {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-## **Concurrency**
-### Use Promises, not callbacks
-Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
-Promises are a built-in global type. Use them!
+## **Eşzamanlılık**
+### Promiseleri kullan,Callbackleri değil.
+Callbackler kusursuz değildir , ve aşırı miktarda iç içe geçmeye neden olurlar. ES2015/ES6
+ile birlikte Promiseler bir yerleşik evrensel tiptir. Onları kullan!
 
 **Kötü:**
 ```javascript
 import { get } from 'request';
 import { writeFile } from 'fs';
 
-get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', (requestErr, response) => {
+get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin', (istekHatasi, cevap) => {
   if (requestErr) {
-    console.error(requestErr);
+    console.error(istekHatasi);
   } else {
-    writeFile('article.html', response.body, (writeErr) => {
-      if (writeErr) {
-        console.error(writeErr);
+    writeFile('makale.html', cevap.body, (yazmaHatasi) => {
+      if (yazmaHatasi) {
+        console.error(yazmaHatasi);
       } else {
-        console.log('File written');
+        console.log('Dosya yazildi');
       }
     });
   }
@@ -1744,25 +1744,25 @@ import { get } from 'request';
 import { writeFile } from 'fs';
 
 get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
-  .then((response) => {
-    return writeFile('article.html', response);
+  .then((cevap) => {
+    return writeFile('makale.html', cevap);
   })
   .then(() => {
-    console.log('File written');
+    console.log('Dosya yazildi');
   })
-  .catch((err) => {
-    console.error(err);
+  .catch((hata) => {
+    console.error(hata);
   });
 
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Async/Await are even cleaner than Promises
-Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
-which offer an even cleaner solution. All you need is a function that is prefixed
-in an `async` keyword, and then you can write your logic imperatively without
-a `then` chain of functions. Use this if you can take advantage of ES2017/ES8 features
-today!
+### Async/Await ,Promise'den daha temizdir.
+Promiseler Callbacklere nazaran daha temizdir, fakat ES2017/ES8 daha 
+temiz bir çözüm sunan async await'i getirdi. Tek ihtiyacın `async` önekine sahip bir fonksiyon, 
+ve sonrasında `then`li fonksiyonlar zincirini kullanmaksızın 
+mantığını zorunlu olarak yazabilirsin. ES2017 / ES8 özelliklerinden yararlanabiliyorsanız bunu
+bugün kullanın!.
 
 **Kötü:**
 ```javascript
@@ -1770,14 +1770,14 @@ import { get } from 'request-promise';
 import { writeFile } from 'fs-promise';
 
 get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
-  .then((response) => {
-    return writeFile('article.html', response);
+  .then((cevap) => {
+    return writeFile('makale.html', cevap);
   })
   .then(() => {
-    console.log('File written');
+    console.log('Dosya yazildi');
   })
-  .catch((err) => {
-    console.error(err);
+  .catch((hata) => {
+    console.error(hata);
   });
 
 ```
@@ -1787,13 +1787,13 @@ get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
 import { get } from 'request-promise';
 import { writeFile } from 'fs-promise';
 
-async function getCleanCodeArticle() {
+async function temizKodMakalesiniAl() {
   try {
-    const response = await get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin');
-    await writeFile('article.html', response);
-    console.log('File written');
-  } catch(err) {
-    console.error(err);
+    const cevap = await get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin');
+    await writeFile('makale.html', cevap);
+    console.log('Dosya yazildi');
+  } catch(hata) {
+    console.error(hata);
   }
 }
 ```
