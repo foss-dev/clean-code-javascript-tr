@@ -1877,57 +1877,56 @@ getdata()
 **[⬆ en başa dön](#içindekiler)**
 
 
-## **Formatting**
-Formatting is subjective. Like many rules herein, there is no hard and fast
-rule that you must follow. The main point is DO NOT ARGUE over formatting.
-There are [tons of tools](http://standardjs.com/rules.html) to automate this.
-Use one! It's a waste of time and money for engineers to argue over formatting.
+## **Yazım Şekli**
+Yazım şekli özneldir. Buradaki birçok kural gibi, uymanız gereken zor ve 
+sıkı bir kural yoktur. Yazım şekli üzerinde TARTIŞMAYIN.
+Bunları otomatikleştirmek için [binlerce araç](http://standardjs.com/rules.html) vardır.
+Birini kullanın! Mühendisler için, yazım şekli üzerinde tartışmak zaman ve para kaybıdır.
 
-For things that don't fall under the purview of automatic formatting
-(indentation, tabs vs. spaces, double vs. single quotes, etc.) look here
-for some guidance.
+Otomatik formatlama kapsamına girmeyen şeyler
+(girintileme, tab veya boşluk, çift veya tek tırnak vb.) hakkında rehberlik
+için buraya bakın.
 
-### Use consistent capitalization
-JavaScript is untyped, so capitalization tells you a lot about your variables,
-functions, etc. These rules are subjective, so your team can choose whatever
-they want. The point is, no matter what you all choose, just be consistent.
+### Büyük harf kullanımınız tutarlı olsun
+JavaScript'in bir yazım kuralı yoktur, bu yüzden büyük harf kullanımı size değişkenler, 
+fonksiyonlar vb. şeyler hakkında birçok bilgi verir. Bu kurallar özneldir, yani ekibiniz istediğini
+seçebilir. Önemli olan neyi seçtiğiniz değildir, seçtiğinizde tutarlı olmanızdır.
 
 **Kötü:**
 ```javascript
-const DAYS_IN_WEEK = 7;
-const daysInMonth = 30;
+const HAFTANIN_GUN_SAYISI = 7;
+const ayinGunSayisi = 30;
 
-const songs = ['Back In Black', 'Stairway to Heaven', 'Hey Jude'];
-const Artists = ['ACDC', 'Led Zeppelin', 'The Beatles'];
+const sarkilar = ['Back In Black', 'Stairway to Heaven', 'Hey Jude'];
+const Sanatcilar = ['ACDC', 'Led Zeppelin', 'The Beatles'];
 
-function eraseDatabase() {}
-function restore_database() {}
+function veritabaniniSil() {}
+function veritabanini_kurtar() {}
 
-class animal {}
-class Alpaca {}
+class hayvan {}
+class Alpaka {}
 ```
 
 **İyi:**
 ```javascript
-const DAYS_IN_WEEK = 7;
-const DAYS_IN_MONTH = 30;
+const HAFTANIN_GUN_SAYISI = 7;
+const AYIN_GUN_SAYISI = 30;
 
-const SONGS = ['Back In Black', 'Stairway to Heaven', 'Hey Jude'];
-const ARTISTS = ['ACDC', 'Led Zeppelin', 'The Beatles'];
+const SARKILAR = ['Back In Black', 'Stairway to Heaven', 'Hey Jude'];
+const SANATCILAR = ['ACDC', 'Led Zeppelin', 'The Beatles'];
 
-function eraseDatabase() {}
-function restoreDatabase() {}
+function veritabaniniSil() {}
+function veritabaniniKurtar() {}
 
-class Animal {}
-class Alpaca {}
+class Hayvan {}
+class Alpaka {}
 ```
 **[⬆ en başa dön](#içindekiler)**
 
 
-### Function callers and callees should be close
-If a function calls another, keep those functions vertically close in the source
-file. Ideally, keep the caller right above the callee. We tend to read code from
-top-to-bottom, like a newspaper. Because of this, make your code read that way.
+### Çağırılan ve çağıran fonksiyonlar birbirine yakın olmalıdır.
+Eğer bir fonksiyon diğerini çağırıyorsa, kodda onları dikey olarak birbirine yakın tutun. İdeal olarak, çağıran fonksiyonu çağırılanın hemen üzerinde tutun. Kodları tıpkı gazete okur gibi
+yukarıdan aşağıya doğru okuruz. Bu nedenle, kodunuzun bu yolda okunabilmesini sağlayın.
 
 **Kötü:**
 ```javascript
