@@ -2010,27 +2010,31 @@ review.perfReview();
 
 **[⬆ en başa dön](#içindekiler)**
 
-## **Comments**
-### Only comment things that have business logic complexity.
-Comments are an apology, not a requirement. Good code *mostly* documents itself.
+## **Yorumlar**
+### Sadece iş mantığının karmaşık olduğu durumlarda yorumları kullanın.
+Yorumlar lükstür, zorunlu değildir. İyi kod *çoğunlukla* kendini belli eder.
 
 **Kötü:**
 ```javascript
-function hashIt(data) {
-  // The hash
-  let hash = 0;
+function ozetCikar(veri) {
+  // Özet
+  let ozet = 0;
 
-  // Length of string
-  const length = data.length;
+  // data değişkeninin uzunluğu
+  const uzunluk = veri.length;
 
-  // Loop through every character in data
-  for (let i = 0; i < length; i++) {
-    // Get character code.
-    const char = data.charCodeAt(i);
-    // Make the hash
-    hash = ((hash << 5) - hash) + char;
-    // Convert to 32-bit integer
-    hash &= hash;
+  // veri değişkeninin her karakterini döngüye sok
+  for (let i = 0; i < uzunluk; i++) {
+  
+    // Karakter kodunu getir
+    const karakter = veri.charCodeAt(i);
+    
+    // Özetini çıkar
+    ozet = ((ozet << 5) - ozet) + karakter;
+    
+    // 32-bit'lik sayıya çevir
+    ozet &= ozet;
+    
   }
 }
 ```
@@ -2038,16 +2042,16 @@ function hashIt(data) {
 **İyi:**
 ```javascript
 
-function hashIt(data) {
-  let hash = 0;
-  const length = data.length;
+function ozetCikar(veri) {
+  let ozet = 0;
+  const uzunluk = veri.length;
 
-  for (let i = 0; i < length; i++) {
-    const char = data.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
+  for (let i = 0; i < uzunluk; i++) {
+    const karakter = veri.charCodeAt(i);
+    ozet = ((ozet << 5) - ozet) + karakter;
 
-    // Convert to 32-bit integer
-    hash &= hash;
+    // 32-bit'lik sayıya çevir
+    ozet &= ozet;
   }
 }
 
