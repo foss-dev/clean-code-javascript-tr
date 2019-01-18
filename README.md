@@ -230,14 +230,14 @@ menuOlustur({
 Bu yazılım mühendisliğindeki en önemli kuraldır. Bir fonksiyon birden fazla
 işi yerine getirmeye çalıştığı zaman; onu oluşturmayı, test etmeyi ve onla ilgili
 düşünmeyi zorlaştırır. Fonksiyonunuzu tek bir görevi yerine getirmekle yükümlü
-kıldığınız zaman onu daha kolay düzenlebilir, daha kolay dokunabilir bir hale getirmiş olacaksınız.
+kıldığınız zaman onu daha kolay düzenleyebilir, daha kolay dokunabilir bir hale getirmiş olacaksınız.
 Sadece bu maddeleri yerine getirmeniz bile sizi bir çok geliştiricinin önüne geçirecektir.
 
 **Kötü:**
 ```javascript
-function emailAboneleri(clients) {
+function emailAboneleri(aboneler) {
   aboneler.forEach((abone) => {
-    const aboneKaydi = veritabanı.sorgula(abone);
+    const aboneKaydi = veritabani.sorgula(abone);
     if (aboneKaydi.aktifMi()) {
       email(abone);
     }
@@ -254,7 +254,7 @@ function aktifEmailAboneleri(aboneler) {
 }
 
 function aboneAktifMi(abone) {
-  const aboneKaydi = veritabanı.sorgula(abone);
+  const aboneKaydi = veritabani.sorgula(abone);
   return aboneKaydi.aktifMi();
 }
 ```
@@ -356,7 +356,7 @@ function analizEt(simgeler) {
 ### Yinelenen kodu kaldırın
 Yinelenen kodu kaldırmak için elinizden gelenin en iyisini yapın. Tekrarlanan kodun
 kötü olma nedeni, kodunuzda mantıksal bir durumu değiştirmeye çalıştığınızda
-bunu birden fazla yerde yapmanız gerekecektir. Bu da oldukça hata açıktır.
+bunu birden fazla yerde yapmanızı gerektirmesidir. Bu da oldukça hataya elverişli bir durumdur.
 
 Bir restoran işlettiğinizi ve içinde domates, soğan, biber, sarımsak vs. olan bir deponuz
 olduğunu ve deponuzu takip ettiğinizi düşünün. Eğer bu iş için birden fazla liste
@@ -369,10 +369,10 @@ dolayı çoğunlukla aynı özelliklere sahip olan ve temelde aynı işi yapan
 iki farklı fonksiyon yazmaya zorlar. Tekrarlayan kodu kaldırmak demek; bu farklılıkları
 farklı bir yerde yerine getirebilecek soyut fonksiyonlar, modüller, sınıflar yazmak demektir.
 
-Soyutlamayı doğru yapmak çok kritikdir. Bu yüzden devam eden kısımlardaki *Sınıflar*
+Soyutlamayı doğru yapmak çok kritikdir. Bu yüzden devam eden kısımlardan *Sınıflar*
 kısmındaki KATI kuralları takip etmelisiniz. Kötü soyutlamalar kod tekrarından da kötüdür.
-Bu yüzden dikkatli olmalısınız. İyi bir soyutlama yapabilirim diyorsan bunu yap!
-Kendini tekrar etme, aksi takdirde kendini birden fazla yeri güncellerken bulacaksın.
+Bu yüzden dikkatli olmalısınız. İyi bir soyutlama yapabilirim diyorsanız bunu yapın.
+Kendinizi tekrar etmeyin, aksi takdirde kendinizi birden fazla yeri güncellerken bulacaksınız.
 
 **Kötü:**
 ```javascript
