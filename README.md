@@ -1,18 +1,18 @@
 # clean-code-javascript-tr
 
 ## İçindekiler
-  1. [Giriş](#giris)
-  2. [Değişkenler](#degiskenler)
+  1. [Giriş](#giriş)
+  2. [Değişkenler](#değişkenler)
   3. [Fonksiyonlar](#fonksiyonlar)
-  4. [Nesneler ve Veri Yapıları](#nesneler-ve-veri-yapilari)
-  5. [Sınıflar](#classes)
+  4. [Nesneler ve Veri Yapıları](#nesneler-ve-veri-yapıları)
+  5. [Sınıflar](#sınıflar)
   6. [SOLID](#solid)
   7. [Test](#test)
-  8. [Eşzamanlılık](#eszamanlilik)
+  8. [Eşzamanlılık](#eşzamanlılık)
   9. [Hata Yakalama](#hata-yakalama)
-  10. [Yazım Şekli](#yazim-sekli)
+  10. [Yazım Şekli](#yazım-şekli)
   11. [Yorumlar](#yorumlar)
-  12. [Translation](#translation)
+  12. [Çeviriler](#çeviriler)
 
 ## Giriş
 ![Yazılım kalitesi hakkında "Bu ne ola ki" sorularından oluşan komik bir görsel.](http://www.osnews.com/images/comics/wtfm.jpg)
