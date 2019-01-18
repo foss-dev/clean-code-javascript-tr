@@ -261,28 +261,28 @@ function isActiveClient(client) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Function names should say what they do
+### Fonksiyon İsimleri Ne Yaptıklarını Söylemeli
 
 **Kötü:**
 ```javascript
-function addToDate(date, month) {
+function tariheEkle(tarih, ay) {
   // ...
 }
 
 const date = new Date();
 
-// It's hard to tell from the function name what is added
-addToDate(date, 1);
+// Fonksiyonun adına bakarak neyin nereye eklendiğini söylemek zor
+tariheEkle(tarih, 1);
 ```
 
 **İyi:**
 ```javascript
-function addMonthToDate(month, date) {
+function tariheAyEkle(ay, tarih) {
   // ...
 }
 
 const date = new Date();
-addMonthToDate(1, date);
+tariheAyEkle(1, tarih);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
