@@ -1831,7 +1831,7 @@ try {
 ```
 
 ### Promise Hatalarını Görmezden Gelmeyin
-Aynı sebepten dolay `try/catch`'ten kaynaklanan hataları gözardı etmemelisiniz.
+Aynı sebepten dolayı `try/catch`'ten kaynaklanan hataları gözardı etmemelisiniz.
 
 **Kötü:**
 ```javascript
