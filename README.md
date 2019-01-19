@@ -177,51 +177,50 @@ function fabrikaOlustur(isim = 'Önceki Yazılımcı AŞ') {
 
 ## **Fonksiyonlar**
 ### Fonksiyon Argümanları (İdeal olanı 2 ya da daha az)
-Limiting the amount of function parameters is incredibly important because it
-makes testing your function easier. Having more than three leads to a
-combinatorial explosion where you have to test tons of different cases with
-each separate argument.
+Fonksiyonların aldığı argümanları sınırlandırmak fonksiyonun test edilebilirliği
+açısından oldukça önemlidir. Üçten fazla argümana sahip bir fonksiyonu test 
+etmeniz gerektiğinde, her bir durumu her bir argümanla ayrı ayrı test
+edeceğinizden dolayı tonlarca teste maruz kalabilirsiniz.
 
-One or two arguments is the ideal case, and three should be avoided if possible.
-Anything more than that should be consolidated. Usually, if you have
-more than two arguments then your function is trying to do too much. In cases
-where it's not, most of the time a higher-level object will suffice as an
-argument.
+Bir veya iki argüman normal olan durumdur, mümkün olduğunca üçüncüden kaçınılmadılır.
+Bundan daha fazla olanlar iyileştirilmelidir. Eğer fonksiyonunuz ikiden fazla
+argüman alıyorsa, muhtemelen yapması gerekenden fazla işi yapmaya çalışıyordur.
+Daha fazla argümana ihtiyacınız olduğunuz durumlarda daha kapsamlı bir nesne
+kullanmak yeterli olacaktır.
 
-Since JavaScript allows you to make objects on the fly, without a lot of class
-boilerplate, you can use an object if you are finding yourself needing a
-lot of arguments.
+Javascript size anında nesne oluşturma kabiliyetini verdiğinden dolayı, daha fazla
+argümana ihtiyaç duyduğunuz durumlarda; herhangi bir sınıf üretmeye gerek kalmadan
+nesneler içerisinde argümanlarınızı gönderebilirsiniz.
 
-To make it obvious what properties the function expects, you can use the ES2015/ES6
-destructuring syntax. This has a few advantages:
+Fonksiyonun beklediği argümanları garantilemek için ES2015/ES6 ile gelen
+yıkım işlemi (destructuring) sözdizimini kullanabilirsiniz. Bunun birkaç avantajı var:
 
-1. When someone looks at the function signature, it's immediately clear what
-properties are being used.
-2. Destructuring also clones the specified primitive values of the argument
-object passed into the function. This can help prevent side effects. Note:
-objects and arrays that are destructured from the argument object are NOT
-cloned.
-3. Linters can warn you about unused properties, which would be impossible
-without destructuring.
+1. Dışarıdan birisi fonksiyon iskeletine baktığı zaman, fonksiyonun dışarıdan aldığı
+özellikleri kolayca anlayabilir.
+2. Yıkım işlemi (destructuring) aynı zamanda nesne içerisinde gönderilen ilkel
+değerleri klonlar. Bu yan etkilerin engellenmesinde yardımcı olur. Not: Argüman
+nesneleri tarafından yıkıma uğratılmış (destruct edilmiş) nesne ve dizi değerleri klonlanmaz.
+3. Linterlar sizi kullanılmayan değerler için uyarabilir, ki bu durumu yıkım ("destruct") işlemi olmadan
+yapmanız mümkün değildir.
 
 **Kötü:**
 ```javascript
-function createMenu(title, body, buttonText, cancellable) {
+function menuOlustur(baslik, icerik, butonIcerik, iptalEdilebilir) {
   // ...
 }
 ```
 
 **İyi:**
 ```javascript
-function createMenu({ title, body, buttonText, cancellable }) {
+function menuOlustur({ baslik, icerik, butonIcerik, iptalEdilebilir }) {
   // ...
 }
 
-createMenu({
-  title: 'Foo',
-  body: 'Bar',
-  buttonText: 'Baz',
-  cancellable: true
+menuOlustur({
+  baslik: 'Takip Et',
+  icerik: 'Kullanıcı takip edilsin mi?',
+  butonIcerik: 'TAKİP ET',
+  iptalEdilebilir: true
 });
 ```
 **[⬆ en başa dön](#içindekiler)**
@@ -267,7 +266,7 @@ function tariheEkle(tarih, ay) {
 
 const tarih = new Date();
 
-// Fonksiyonun adına bakarak neyin nereye eklendiğini söylemek zor
+// Fonkisyon adına bakarak neyin eklendiğini anlamak zor
 tariheEkle(tarih, 1);
 ```
 
@@ -282,66 +281,66 @@ tariheAyEkle(1, tarih);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Functions should only be one level of abstraction
-When you have more than one level of abstraction your function is usually
-doing too much. Splitting up functions leads to reusability and easier
-testing.
+### Fonksiyonlar bir seviye soyutlaştırılmalıdır
+Fonkiyonunuz bir seviyeden fazla soyutlaşmış ise, gereğinden fazla
+iş yapıyor demektir. Fonksiyonlarınızı görevlerine göre küçük parçalara 
+bölmek geri kullanılabilirlik ve kolay test edilebilirlik açısından önemlidir.
 
 **Kötü:**
 ```javascript
-function parseBetterJSAlternative(code) {
-  const REGEXES = [
+function dahaIyiJSAlternatifineDonustur(kod) {
+  const REGEXLER = [
     // ...
   ];
 
-  const statements = code.split(' ');
-  const tokens = [];
-  REGEXES.forEach((REGEX) => {
-    statements.forEach((statement) => {
+  const kodParcaciklari = kod.split(' ');
+  const simgeler = [];
+  REGEXLER.forEach((REGEX) => {
+    kodParcaciklari.forEach((kodParcacigi) => {
       // ...
     });
   });
 
   const ast = [];
-  tokens.forEach((token) => {
+  simgeler.forEach((simge) => {
     // lex...
   });
 
   ast.forEach((node) => {
-    // parse...
+    // dönüstür...
   });
 }
 ```
 
 **İyi:**
 ```javascript
-function parseBetterJSAlternative(code) {
-  const tokens = tokenize(code);
-  const ast = lexer(tokens);
+function dahaIyiJSAlternatifineDonustur(kod) {
+  const simgeler = simgelestir(kod);
+  const ast = analizEt(simgeler);
   ast.forEach((node) => {
-    // parse...
+    // dönüstür...
   });
 }
 
-function tokenize(code) {
-  const REGEXES = [
+function simgelestir(kod) {
+  const REGEXLER = [
     // ...
   ];
 
-  const statements = code.split(' ');
-  const tokens = [];
-  REGEXES.forEach((REGEX) => {
-    statements.forEach((statement) => {
-      tokens.push( /* ... */ );
+  const kodParcaciklari = kod.split(' ');
+  const simgeler = [];
+  REGEXLER.forEach((REGEX) => {
+    kodParcaciklari.forEach((kodParcacigi) => {
+      simgeler.push( /* ... */ );
     });
   });
 
-  return tokens;
+  return simgeler;
 }
 
-function lexer(tokens) {
+function analizEt(simgeler) {
   const ast = [];
-  tokens.forEach((token) => {
+  simgeler.forEach((simge) => {
     ast.push( /* ... */ );
   });
 
@@ -350,83 +349,82 @@ function lexer(tokens) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Remove duplicate code
-Do your absolute best to avoid duplicate code. Duplicate code is bad because it
-means that there's more than one place to alter something if you need to change
-some logic.
+### Yinelenen kodu kaldırın
+Yinelenen kodu kaldırmak için elinizden gelenin en iyisini yapın. Tekrarlanan kodun
+kötü olma nedeni, kodunuzda mantıksal bir durumu değiştirmeye çalıştığınızda
+bunu birden fazla yerde yapmanızı gerektirmesidir. Bu da oldukça hataya elverişli bir durumdur.
 
-Imagine if you run a restaurant and you keep track of your inventory: all your
-tomatoes, onions, garlic, spices, etc. If you have multiple lists that
-you keep this on, then all have to be updated when you serve a dish with
-tomatoes in them. If you only have one list, there's only one place to update!
+Bir restoran işlettiğinizi ve içinde domates, soğan, biber, sarımsak vs. olan bir deponuz
+olduğunu ve deponuzu takip ettiğinizi düşünün. Eğer bu iş için birden fazla liste
+tutarsanız, en ufak bir servisinizde tüm listeleri yeniden güncellemeniz gerekecektir.
+Eğer tek bir listeniz olursa tek bir noktadan tüm listeyi yönetebilirsiniz
 
-Oftentimes you have duplicate code because you have two or more slightly
-different things, that share a lot in common, but their differences force you
-to have two or more separate functions that do much of the same things. Removing
-duplicate code means creating an abstraction that can handle this set of
-different things with just one function/module/class.
+Çoğu zaman kod tekrarına düşersiniz. Çünkü iki veya daha fazla küçük farklılığı
+olan ama çoğunlukla aynı özellikleri taşıyan iki fonksiyon sizi bu küçük nedenlerden
+dolayı çoğunlukla aynı özelliklere sahip olan ve temelde aynı işi yapan
+iki farklı fonksiyon yazmaya zorlar. Tekrarlayan kodu kaldırmak demek; bu farklılıkları
+farklı bir yerde yerine getirebilecek soyut fonksiyonlar, modüller, sınıflar yazmak demektir.
 
-Getting the abstraction right is critical, that's why you should follow the
-SOLID principles laid out in the *Classes* section. Bad abstractions can be
-worse than duplicate code, so be careful! Having said this, if you can make
-a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself
-updating multiple places anytime you want to change one thing.
+Soyutlamayı doğru yapmak çok kritikdir. Bu yüzden devam eden kısımlardan *Sınıflar*
+kısmındaki KATI kuralları takip etmelisiniz. Kötü soyutlamalar kod tekrarından da kötüdür.
+Bu yüzden dikkatli olmalısınız. İyi bir soyutlama yapabilirim diyorsanız bunu yapın.
+Kendinizi tekrar etmeyin, aksi takdirde kendinizi birden fazla yeri güncellerken bulacaksınız.
 
 **Kötü:**
 ```javascript
-function showDeveloperList(developers) {
-  developers.forEach((developer) => {
-    const expectedSalary = developer.calculateExpectedSalary();
-    const experience = developer.getExperience();
-    const githubLink = developer.getGithubLink();
-    const data = {
-      expectedSalary,
-      experience,
+function gelistiriciListesiniGoster(gelistiriciler) {
+  gelistiriciler.forEach((gelistirici) => {
+    const beklenenMaas = gelistirici.beklenenMaasiHesapla();
+    const deneyim = gelistirici.deneyimiGetir();
+    const githubLink = gelistirici.githubLink();
+    const veri = {
+      beklenenMaas,
+      deneyim,
       githubLink
     };
 
-    render(data);
+    yazdir(veri);
   });
 }
 
-function showManagerList(managers) {
-  managers.forEach((manager) => {
-    const expectedSalary = manager.calculateExpectedSalary();
-    const experience = manager.getExperience();
-    const portfolio = manager.getMBAProjects();
-    const data = {
-      expectedSalary,
+function showManagerList(yoneticiler) {
+  yoneticiler.forEach((yonetici) => {
+    const beklenenMaas = yonetici.beklenenMaasiHesapla();
+    const deneyim = yonetici.deneyimiGetir();
+    const portfolio = yonetici.projeleriniGetir();
+    const veri = {
+      beklenenMaas,
       experience,
       portfolio
     };
 
-    render(data);
+    yazdir(veri);
   });
 }
 ```
 
 **İyi:**
 ```javascript
-function showEmployeeList(employees) {
-  employees.forEach((employee) => {
-    const expectedSalary = employee.calculateExpectedSalary();
-    const experience = employee.getExperience();
+function personelListesiniGoster(personeller) {
+  personeller.forEach((personel) => {
+    const beklenenMaas = personel.beklenenMaasiHesapla();
+    const deneyim = personel.deneyimiGetir();
 
-    const data = {
-      expectedSalary,
-      experience
+    const veri = {
+      beklenenMaas,
+      deneyim
     };
 
-    switch (employee.type) {
-      case 'manager':
-        data.portfolio = employee.getMBAProjects();
+    switch (personel.tip) {
+      case 'yonetici':
+        veri.portfolio = personel.projeleriniGetir();
         break;
       case 'developer':
-        data.githubLink = employee.getGithubLink();
+        veri.githubLink = personel.githubLink();
         break;
     }
 
-    render(data);
+    yazdir(veri);
   });
 }
 ```
