@@ -783,27 +783,26 @@ class Cessna extends Airplane {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid type-checking (part 1)
-JavaScript is untyped, which means your functions can take any type of argument.
-Sometimes you are bitten by this freedom and it becomes tempting to do
-type-checking in your functions. There are many ways to avoid having to do this.
-The first thing to consider is consistent APIs.
+### Tip Kontrolünden Kaçının (Bölüm 1)
+JavaScript tip güvensiz bir dildir, yani fonksiyonlarınız herhangi bir tipte argüman alabilir.
+Bazen bu özgürlük can yakıcı olabiliyor haliyle fonksiyonlarınızda tip kontrolü yapmak cazip hale gelebiliyor. Bundan kaçınmanın birçok yolu var.
+Dikkate alınması gereken ilk şey tutarlı API'lar yazmanız.
 
 **Kötü:**
 ```javascript
-function travelToTexas(vehicle) {
-  if (vehicle instanceof Bicycle) {
-    vehicle.pedal(this.currentLocation, new Location('texas'));
-  } else if (vehicle instanceof Car) {
-    vehicle.drive(this.currentLocation, new Location('texas'));
+function nigdeyeZiyaret(arac) {
+  if (arac instanceof Bisiklet) {
+    arac.pedaliCevir(this.mevcutLokasyon, new Lokasyon('nigde'));
+  } else if (arac instanceof Araba) {
+    arac.sur(this.mevcutLokasyon, new Lokasyon('nigde'));
   }
 }
 ```
 
 **İyi:**
 ```javascript
-function travelToTexas(vehicle) {
-  vehicle.move(this.currentLocation, new Location('texas'));
+function nigdeyeZiyaret(arac) {
+  arac.hareketEt(this.mevcutLokasyon, new Lokasyon('nigde'));
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
@@ -864,34 +863,33 @@ for (let i = 0; i < list.length; i++) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Remove dead code
-Dead code is just as bad as duplicate code. There's no reason to keep it in
-your codebase. If it's not being called, get rid of it! It will still be safe
-in your version history if you still need it.
+### Ölü Kodları Silin
+Ölü kod da tekrarlı kodlar kadar kötüdür. Kodlarınızda ölü kod saklamanız için herhangi bir neden yoktur.
+Eğer herhangi bir yerde çağrılmıyorlarsa onlardan kurtulun. İhtiyacınız olduğunda, versiyon kontrol sisteminde bulabilirsiniz.
 
 **Kötü:**
 ```javascript
-function oldRequestModule(url) {
+function eskiHttpRequestModulu(url) {
   // ...
 }
 
-function newRequestModule(url) {
+function yeniHttpRequestModulu(url) {
   // ...
 }
 
-const req = newRequestModule;
-inventoryTracker('apples', req, 'www.inventory-awesome.io');
+const istek = yeniHttpRequestModulu;
+envanterTakibi('elmalar', istek, 'www.envantertakibi.com');
 
 ```
 
 **İyi:**
 ```javascript
-function newRequestModule(url) {
+function yeniHttpRequestModulu(url) {
   // ...
 }
 
-const req = newRequestModule;
-inventoryTracker('apples', req, 'www.inventory-awesome.io');
+const istek = yeniHttpRequestModulu;
+envanterTakibi('elmalar', istek, 'www.envantertakibi.com');
 ```
 **[⬆ en başa dön](#içindekiler)**
 
@@ -1924,80 +1922,80 @@ yukarıdan aşağıya doğru okuruz. Bu nedenle, kodunuzun bu yolda okunabilmesi
 
 **Kötü:**
 ```javascript
-class PerformanceReview {
-  constructor(employee) {
-    this.employee = employee;
+class PerformansDegerlendirmesi {
+  constructor(calisan) {
+    this.calisan = calisan;
   }
 
-  lookupPeers() {
-    return db.lookup(this.employee, 'peers');
+  benzerleriniGetir() {
+    return db.lookup(this.calisan, 'benzer');
   }
 
-  lookupManager() {
-    return db.lookup(this.employee, 'manager');
+  mudurleriGetir() {
+    return db.lookup(this.calisan, 'mudur');
   }
 
-  getPeerReviews() {
-    const peers = this.lookupPeers();
+  benzerDegerlendirmeler() {
+    const benzerler = this.benzerleriniGetir();
     // ...
   }
 
-  perfReview() {
-    this.getPeerReviews();
-    this.getManagerReview();
-    this.getSelfReview();
+  performansDegerlendirmesi() {
+    this.benzerDegerlendirmeler();
+    this.mudurDegerlendirmeleri();
+    this.kendiDegerlendirmeleriGetir();
   }
 
-  getManagerReview() {
-    const manager = this.lookupManager();
+  mudurDegerlendirmeleri() {
+    const mudur = this.mudurleriGetir();
   }
 
-  getSelfReview() {
+  kendiDegerlendirmeleriGetir() {
     // ...
   }
 }
 
-const review = new PerformanceReview(employee);
-review.perfReview();
+const deegrlendirme = new PerformansDegerlendirmesi(calisan);
+deegrlendirme.performansDegerlendirmesi();
 ```
 
 **İyi:**
 ```javascript
-class PerformanceReview {
-  constructor(employee) {
-    this.employee = employee;
+class PerformansDegerlendirmesi {
+  constructor(calisan) {
+    this.calisan = calisan;
   }
 
-  perfReview() {
-    this.getPeerReviews();
-    this.getManagerReview();
-    this.getSelfReview();
+  performansDegerlendirmesi() {
+    this.benzerDegerlendirmeler();
+    this.mudurDegerlendirmeleri();
+    this.kendiDegerlendirmeleriGetir();
   }
 
-  getPeerReviews() {
-    const peers = this.lookupPeers();
+  benzerDegerlendirmeler() {
+    const benzer = this.benzerleriniGetir();
     // ...
   }
 
-  lookupPeers() {
-    return db.lookup(this.employee, 'peers');
+  benzerleriniGetir() {
+    return db.lookup(this.calisan, 'benzer');
   }
 
-  getManagerReview() {
-    const manager = this.lookupManager();
+  mudurDegerlendirmeleri() {
+    const mudur = this.mudurleriGetir();
   }
 
-  lookupManager() {
-    return db.lookup(this.employee, 'manager');
+  mudurleriGetir() {
+    return db.lookup(this.calisan, 'mudur');
   }
 
-  getSelfReview() {
+  kendiDegerlendirmeleriGetir() {
     // ...
   }
 }
 
-const review = new PerformanceReview(employee);
-review.perfReview();
+const degerlendirme = new PerformansDegerlendirmesi(calisan);
+degerlendirme.performansDegerlendirmesi();
 ```
 
 **[⬆ en başa dön](#içindekiler)**
