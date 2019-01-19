@@ -430,49 +430,49 @@ function personelListesiniGoster(personeller) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Set default objects with Object.assign
+### Varsayılan Nesneleri Object.assign ile Atayın
 
 **Kötü:**
 ```javascript
-const menuConfig = {
-  title: null,
-  body: 'Bar',
-  buttonText: null,
-  cancellable: true
+const menuAyari = {
+  baslik: null,
+  icerik: 'Deneme',
+  butonYazisi: null,
+  iptalEdilebilir: true
 };
 
-function createMenu(config) {
-  config.title = config.title || 'Foo';
-  config.body = config.body || 'Bar';
-  config.buttonText = config.buttonText || 'Baz';
-  config.cancellable = config.cancellable !== undefined ? config.cancellable : true;
+function menuOlustur(ayar) {
+  ayar.baslik = ayar.baslik || 'Bir Baslik';
+  ayar.icerik = ayar.icerik || 'Deneme';
+  ayar.butonYazisi = ayar.butonYazisi || 'Kaydet';
+  ayar.iptalEdilebilir = ayar.iptalEdilebilir !== undefined ? ayar.iptalEdilebilir : true;
 }
 
-createMenu(menuConfig);
+menuOlustur(menuAyari);
 ```
 
 **İyi:**
 ```javascript
-const menuConfig = {
-  title: 'Order',
-  // User did not include 'body' key
-  buttonText: 'Send',
-  cancellable: true
+const menuAyari = {
+  baslik: 'Bir Baslik',
+  // Geliştirici 'icerik' key'ini burada belirtmedi
+  butonYazisi: 'Kaydet',
+  iptalEdilebilir: true
 };
 
-function createMenu(config) {
-  config = Object.assign({
-    title: 'Foo',
-    body: 'Bar',
-    buttonText: 'Baz',
-    cancellable: true
-  }, config);
+function menuOlustur(ayar) {
+  ayar = Object.assign({
+    baslik: 'Bir Baslik',
+    icerik: 'Deneme',
+    butonYazisi: 'Kaydet',
+    iptalEdilebilir: true
+  }, ayar);
 
-  // config now equals: {title: "Order", body: "Bar", buttonText: "Send", cancellable: true}
+  // ayar simdi: {baslik: "Bir Baslik", icerik: "Deneme", butonYazisi: "Kaydet", iptalEdilebilir: true}
   // ...
 }
 
-createMenu(menuConfig);
+menuOlustur(menuAyari);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
