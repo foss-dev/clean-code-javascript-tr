@@ -702,26 +702,26 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid negative conditionals
+### Negatif Koşullardan Kaçının
 
 **Kötü:**
 ```javascript
-function isDOMNodeNotPresent(node) {
+function domYaratilmadi(node) {
   // ...
 }
 
-if (!isDOMNodeNotPresent(node)) {
+if (!domYaratilmadi(node)) {
   // ...
 }
 ```
 
 **İyi:**
 ```javascript
-function isDOMNodePresent(node) {
+function domYaratildi(node) {
   // ...
 }
 
-if (isDOMNodePresent(node)) {
+if (domYaratildi(node)) {
   // ...
 }
 ```
