@@ -1830,35 +1830,34 @@ try {
 }
 ```
 
-### Don't ignore rejected promises
-For the same reason you shouldn't ignore caught errors
-from `try/catch`.
+### Promise Hatalarını Görmezden Gelmeyin
+Aynı sebepten dolay `try/catch`'ten kaynaklanan hataları gözardı etmemelisiniz.
 
 **Kötü:**
 ```javascript
-getdata()
-  .then((data) => {
-    functionThatMightThrow(data);
+verileriGetir()
+  .then((veri) => {
+    fonksiyonHataFirlatabilir(veri);
   })
-  .catch((error) => {
-    console.log(error);
+  .catch((hata) => {
+    console.log(hata);
   });
 ```
 
 **İyi:**
 ```javascript
-getdata()
-  .then((data) => {
-    functionThatMightThrow(data);
+verileriGetir()
+  .then((veri) => {
+    fonksiyonHataFirlatabilir(veri);
   })
-  .catch((error) => {
-    // One option (more noisy than console.log):
-    console.error(error);
-    // Another option:
-    notifyUserOfError(error);
-    // Another option:
-    reportErrorToService(error);
-    // OR do all three!
+  .catch((hata) => {
+    // İlk seçenek (console.log'dan daha çok bilgilendirici):
+    console.error(hata);
+    // Diğer Seçenek:
+    kullaniciyaHataGoster(hata);
+    // Diğer Seçenek:
+    hatayiServiseBildir(hata);
+    // Ya da üçünü de yapabilirsiniz!!
   });
 ```
 
