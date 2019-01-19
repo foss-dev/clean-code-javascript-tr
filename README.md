@@ -991,11 +991,11 @@ console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
 
 
 ## **Sınıflar**
-### Prefer ES2015/ES6 classes over ES5 plain functions
-It's very difficult to get readable class inheritance, construction, and method
-definitions for classical ES5 classes. If you need inheritance (and be aware
-that you might not), then prefer ES2015/ES6 classes. However, prefer small functions over
-classes until you find yourself needing larger and more complex objects.
+### Yalın ES5 fonksiyonları yerine ES2015/ES6 sınıflarını tercih edin
+Klasik ES5 sınıfları için okunabilir sınıf kalıtımları, construction ve metod tanımlarını
+almak çok zordur. Eğer kalıtıma ihtiyacınız varsa (ihtiyacınızın olmayabileceğinin farkında olun), 
+o zaman ES2015/ES6 sınıflarını tercih edin. Ancak, daha büyük ve karmaşık nesnelerle uğraşana
+kadar sınıflar yerine küçük fonksiyonları kullanın.
 
 **Kötü:**
 ```javascript
@@ -1067,81 +1067,81 @@ class Human extends Mammal {
 **[⬆ en başa dön](#içindekiler)**
 
 
-### Use method chaining
-This pattern is very useful in JavaScript and you see it in many libraries such
-as jQuery and Lodash. It allows your code to be expressive, and less verbose.
-For that reason, I say, use method chaining and take a look at how clean your code
-will be. In your class functions, simply return `this` at the end of every function,
-and you can chain further class methods onto it.
+### Metod zincirleme yöntemini kullanın
+Bu yöntem JavaScript'te çok kullanışlıdır ve bunu jQuery ve Lodash gibi birçok kütüphanede görebilirsiniz. 
+Kodunuzun daha anlamlı ve daha az detaylı olmasını sağlar.
+Bu nedenle, metod zincirleme yöntemini bir kez kullanın ve kodunuzun ne kadar temiz olacağına bir göz atın derim.
+Sınıf fonksiyonlarında basitçe her fonksiyon sonunda `this` döndürün,
+böylece daha fazla sınıf metodu zincirleyebilirsiniz.
 
 **Kötü:**
 ```javascript
-class Car {
-  constructor(make, model, color) {
-    this.make = make;
+class Araba {
+  constructor(marka, model, renk) {
+    this.marka = marka;
     this.model = model;
-    this.color = color;
+    this.renk = renk;
   }
 
-  setMake(make) {
-    this.make = make;
+  setMarka(marka) {
+    this.marka = marka;
   }
 
   setModel(model) {
     this.model = model;
   }
 
-  setColor(color) {
-    this.color = color;
+  setRenk(renk) {
+    this.renk = renk;
   }
 
-  save() {
-    console.log(this.make, this.model, this.color);
+  kaydet() {
+    console.log(this.marka, this.model, this.renk);
   }
 }
 
-const car = new Car('Ford','F-150','red');
-car.setColor('pink');
-car.save();
+const araba = new Araba('Ford','F-150','kirmizi');
+araba.setRenk('pembe');
+araba.kaydet();
 ```
 
 **İyi:**
 ```javascript
-class Car {
-  constructor(make, model, color) {
-    this.make = make;
+class Araba {
+  constructor(marka, model, renk) {
+    this.marka = marka;
     this.model = model;
-    this.color = color;
+    this.renk = renk;
   }
 
-  setMake(make) {
-    this.make = make;
-    // NOTE: Returning this for chaining
+  setMarka(marka) {
+    this.marka = marka;
+    // NOT: Zincirleme için 'this' döndürülüyor
     return this;
   }
 
   setModel(model) {
     this.model = model;
-    // NOTE: Returning this for chaining
+    // NOT: Zincirleme için 'this' döndürülüyor
     return this;
   }
 
-  setColor(color) {
-    this.color = color;
-    // NOTE: Returning this for chaining
+  setRenk(renk) {
+    this.renk = renk;
+    // NOT: Zincirleme için 'this' döndürülüyor
     return this;
   }
 
-  save() {
-    console.log(this.make, this.model, this.color);
-    // NOTE: Returning this for chaining
+  kaydet() {
+    console.log(this.marka, this.model, this.renk);
+    // NOT: Zincirleme için 'this' döndürülüyor
     return this;
   }
 }
 
-const car = new Car('Ford','F-150','red')
-  .setColor('pink')
-  .save();
+const araba = new Araba('Ford','F-150','kirmizi')
+  .setRenk('pembe')
+  .kaydet();
 ```
 **[⬆ en başa dön](#içindekiler)**
 
