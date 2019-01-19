@@ -2048,56 +2048,56 @@ function ozetCikar(veri) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Don't leave commented out code in your codebase
-Version control exists for a reason. Leave old code in your history.
+### Kod tabanınızda yorum satırına alınmış kod bırakmayın.
+Sürüm kontrol sistemleri bu nedenle var. Eski kodu geçmişinizde bırakın.
 
 **Kötü:**
 ```javascript
-doStuff();
-// doOtherStuff();
-// doSomeMoreStuff();
-// doSoMuchStuff();
+birSeyYap();
+// baskaBirSeyYap();
+// birazDahaBirSeyYap();
+// dahaFazlaBirSeyYap();
 ```
 
 **İyi:**
 ```javascript
-doStuff();
+birSeyYap();
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Don't have journal comments
-Remember, use version control! There's no need for dead code, commented code,
-and especially journal comments. Use `git log` to get history!
+### Yorum satırını günlüğe çevirmeyin
+Sürüm kontrol sistemlerini kullanmanız gerektiğini hatırlayın! Ölü koda, yorum satırına alınmış koda ve 
+özellikle günlüğe çevrilmiş yorum satırına gerek yok. Önceki yapılanları almak için `git log` komutunu kullanın!
 
 **Kötü:**
 ```javascript
 /**
- * 2016-12-20: Removed monads, didn't understand them (RM)
- * 2016-10-01: Improved using special monads (JP)
- * 2016-02-03: Removed type-checking (LI)
- * 2015-03-14: Added combine with type-checking (JR)
+ * 2016-12-20: Monadları kaldırdım, onları anlamadım (RM)
+ * 2016-10-01: Özel monadları kullanarak geliştirdim (JP)
+ * 2016-02-03: Tip denetimini kaldırdım (LI)
+ * 2015-03-14: Topla fonksiyonunu ekledim (JR)
  */
-function combine(a, b) {
+function topla(a, b) {
   return a + b;
 }
 ```
 
 **İyi:**
 ```javascript
-function combine(a, b) {
+function topla(a, b) {
   return a + b;
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid positional markers
-They usually just add noise. Let the functions and variable names along with the
-proper indentation and formatting give the visual structure to your code.
+### Konum işaretleyicilerini kullanmaktan kaçının
+Onlar sadece kuru gürültüden ibaret. Fonksiyonlar ve değişkenlerin uygun girintilemeler,
+yoluyla kodunuza görsel şeklini vermesine izin verin.
 
 **Kötü:**
 ```javascript
 ////////////////////////////////////////////////////////////////////////////////
-// Scope Model Instantiation
+// Scope Model Örneği
 ////////////////////////////////////////////////////////////////////////////////
 $scope.model = {
   menu: 'foo',
@@ -2105,9 +2105,9 @@ $scope.model = {
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-// Action setup
+// Eylem tanımlanması
 ////////////////////////////////////////////////////////////////////////////////
-const actions = function() {
+const eylemler = function() {
   // ...
 };
 ```
@@ -2119,7 +2119,7 @@ $scope.model = {
   nav: 'bar'
 };
 
-const actions = function() {
+const eylemler = function() {
   // ...
 };
 ```
