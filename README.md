@@ -250,7 +250,7 @@ function aktifMusterilereEmailGonder(musteriler) {
 }
 
 function aktifMusteriMi(musteri) {
-  const musteriKaydi = database.sorgula(cliemusterint);
+  const musteriKaydi = database.sorgula(musteri);
   return musteriKaydi.aktifMi();
 }
 ```
