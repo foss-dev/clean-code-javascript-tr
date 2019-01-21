@@ -387,14 +387,14 @@ function gelistiriciListesiniGoster(gelistiriciler) {
   });
 }
 
-function showManagerList(yoneticiler) {
+function yoneticiListesiniGoster(yoneticiler) {
   yoneticiler.forEach((yonetici) => {
     const beklenenMaas = yonetici.beklenenMaasiHesapla();
     const deneyim = yonetici.deneyimiGetir();
     const portfolio = yonetici.projeleriniGetir();
     const veri = {
       beklenenMaas,
-      experience,
+      deneyim,
       portfolio
     };
 
