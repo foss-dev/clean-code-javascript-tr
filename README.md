@@ -597,16 +597,8 @@ const addItemToCart = (cart, item) => {
 
 **[⬆ en başa dön](#içindekiler)**
 
-### Don't write to global functions
-Polluting globals is a bad practice in JavaScript because you could clash with another
-library and the user of your API would be none-the-wiser until they get an
-exception in production. Let's think about an example: what if you wanted to
-extend JavaScript's native Array method to have a `diff` method that could
-show the difference between two arrays? You could write your new function
-to the `Array.prototype`, but it could clash with another library that tried
-to do the same thing. What if that other library was just using `diff` to find
-the difference between the first and last elements of an array? This is why it
-would be much better to just use ES2015/ES6 classes and simply extend the `Array` global.
+### Global fonksiyonlar yazma.
+Javascript'te globalleri kirletmek kötü bir uygulamadır çünkü diğer bir kütüphaneyle çakışabilirsiniz ve API kullanıcınız uygulamayı canlı ortama sunduğunda alacağı bir hataya kadar bu durumdan haberdar olmayabilir. Bir örnek üzerinden düşünelim: eğer JavaScript'in sahip olduğu Array metodunu, iki dizi arasındaki farkı gösteren bir `diff` metoduna sahip olacak şekilde genişletmek isteseydik? `Array.prototype` a yeni bir fonksiyon yazabilirsin, ama bu, aynı şeyi yapmaya çalışan başka bir kütüphane ile çakışabilir. Ya başka bir kütüphane `diff` metodunu, bir dizinin ilk elemanı ile son elemanı arasındaki farkı bulmak için kullanıyor olsaydı? Bu yüzden ES2015/ES6 sınıflarını kullanmak ve basitçe `Array` i kalıtımla almak çok daha iyi olacaktır. 
 
 **Kötü:**
 ```javascript
