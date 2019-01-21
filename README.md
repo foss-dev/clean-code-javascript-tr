@@ -12,7 +12,7 @@
   9. [Hata Yakalama](#hata-yakalama)
   10. [Yazım Şekli](#yazım-şekli)
   11. [Yorumlar](#yorumlar)
-  12. [Çeviriler](#çeviriler)
+  12. [Çeviriler](#translation)
 
 ## Giriş
 ![Yazılım kalitesi hakkında "Bu ne ola ki" sorularından oluşan komik bir görsel.](http://www.osnews.com/images/comics/wtfm.jpg)
