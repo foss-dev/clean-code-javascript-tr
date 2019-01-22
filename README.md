@@ -1261,11 +1261,8 @@ class UserSettings {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Open/Closed Principle (OCP)
-As stated by Bertrand Meyer, "software entities (classes, modules, functions,
-etc.) should be open for extension, but closed for modification." What does that
-mean though? This principle basically states that you should allow users to
-add new functionalities without changing existing code.
+### Açık/Kapalı Prensibi (OCP)
+Bertrand Meyer'in belirttiği gibi, "yazılım varlıkları (sınıflar, modüller, fonksiyonlr v.b.) ekleme yapılmaya açık olmalıdır ama değişiklik yapmaya kapalı olmalıdır." Yani? Bu prensip basitçe, kullanıcıların, yazdığın kodu değiştirmeden fonksiyonellikler(işlevsellikler) eklemesine izin vermelisin diyor. (Kısaca var olanı değiştirmelerine izin verme ama yeni özellikler ekleyebilsinler diyor)
 
 **Kötü:**
 ```javascript
@@ -1283,30 +1280,30 @@ class NodeAdapter extends Adapter {
   }
 }
 
-class HttpRequester {
+class HttpIstekcisi {
   constructor(adapter) {
     this.adapter = adapter;
   }
 
   fetch(url) {
     if (this.adapter.name === 'ajaxAdapter') {
-      return makeAjaxCall(url).then((response) => {
-        // transform response and return
+      return ajaxCagrisiYap(url).then((response) => {
+        // response haline getir ve response dön
       });
     } else if (this.adapter.name === 'httpNodeAdapter') {
-      return makeHttpCall(url).then((response) => {
-        // transform response and return
+      return httpCagrisiYap(url).then((response) => {
+        // response haline getir ve response dön
       });
     }
   }
 }
 
-function makeAjaxCall(url) {
-  // request and return promise
+function ajaxCagrisiYap(url) {
+  // istek yap ve promise dön
 }
 
-function makeHttpCall(url) {
-  // request and return promise
+function httpCagrisiYap(url) {
+  // istek yap ve promise dön
 }
 ```
 
@@ -1318,8 +1315,8 @@ class AjaxAdapter extends Adapter {
     this.name = 'ajaxAdapter';
   }
 
-  request(url) {
-    // request and return promise
+  istekYap(url) {
+    // istek yap ve promise dön
   }
 }
 
@@ -1329,19 +1326,19 @@ class NodeAdapter extends Adapter {
     this.name = 'nodeAdapter';
   }
 
-  request(url) {
-    // request and return promise
+  istekYap(url) {
+    // istek yap ve promise dön
   }
 }
 
-class HttpRequester {
+class HttpIstekcisi {
   constructor(adapter) {
     this.adapter = adapter;
   }
 
   fetch(url) {
-    return this.adapter.request(url).then((response) => {
-      // transform response and return
+    return this.adapter.istekYap(url).then((response) => {
+      // response haline getir ve response dön
     });
   }
 }
