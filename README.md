@@ -619,57 +619,55 @@ class SuperArray extends Array {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Favor functional programming over imperative programming
-JavaScript isn't a functional language in the way that Haskell is, but it has
-a functional flavor to it. Functional languages can be cleaner and easier to test.
-Favor this style of programming when you can.
+### Emirli programlama yerine Fonksiyonel programlamayı tercih edin 
+JavaScript, Haskell gibi fonksiyonel bir dil değil ama fonksiyonel yönleri de var. Fonksiyonel diller daha temiz ve test edilmesi daha kolay olabilir. Yapabildiğiniz zaman bu programlama stilini tercih edin.
 
 **Kötü:**
 ```javascript
-const programmerOutput = [
+const programciCiktisi = [
   {
     name: 'Uncle Bobby',
-    linesOfCode: 500
+    kodSatirlari: 500
   }, {
     name: 'Suzie Q',
-    linesOfCode: 1500
+    kodSatirlari: 1500
   }, {
     name: 'Jimmy Gosling',
-    linesOfCode: 150
+    kodSatirlari: 150
   }, {
     name: 'Gracie Hopper',
-    linesOfCode: 1000
+    kodSatirlari: 1000
   }
 ];
 
-let totalOutput = 0;
+let toplamCikti = 0;
 
-for (let i = 0; i < programmerOutput.length; i++) {
-  totalOutput += programmerOutput[i].linesOfCode;
+for (let i = 0; i < programciCiktisi.length; i++) {
+  toplamCikti += programciCiktisi[i].kodSatirlari;
 }
 ```
 
 **İyi:**
 ```javascript
-const programmerOutput = [
+const programciCiktisi = [
   {
     name: 'Uncle Bobby',
-    linesOfCode: 500
+    kodSatirlari: 500
   }, {
     name: 'Suzie Q',
-    linesOfCode: 1500
+    kodSatirlari: 1500
   }, {
     name: 'Jimmy Gosling',
-    linesOfCode: 150
+    kodSatirlari: 150
   }, {
     name: 'Gracie Hopper',
-    linesOfCode: 1000
+    kodSatirlari: 1000
   }
 ];
 
-const totalOutput = programmerOutput
-  .map(output => output.linesOfCode)
-  .reduce((totalLines, lines) => totalLines + lines);
+const toplamCikti = programciCiktisi
+  .map(cikti => cikti.kodSatirlari)
+  .reduce((toplamSatirlar, satirlar) => toplamSatirlar + satirlar);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
