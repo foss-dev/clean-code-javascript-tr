@@ -813,26 +813,23 @@ function kombin(deger1, deger2) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Don't over-optimize
-Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
-times, if you are optimizing then you are just wasting your time. [There are good
-resources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
-for seeing where optimization is lacking. Target those in the meantime, until
-they are fixed if they can be.
+### Aşırı Optimizasyon Yapmayın
+Modern tarayıcılar çalışma anında arkaplanda çok fazla optimizasyon yaparlar.
+Çoğu zaman yaptığınız optimizasyon, boşa zaman harcamaktır. Optimzasyonun nerede eksik olduğunu görmek için [bu kaynaklar](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers) iyidir.
 
 **Kötü:**
 ```javascript
 
-// On old browsers, each iteration with uncached `list.length` would be costly
-// because of `list.length` recomputation. In modern browsers, this is optimized.
-for (let i = 0, len = list.length; i < len; i++) {
+// Eski tarayıcılarda `list.length` için önbelleğe alınmamış her yineleme maliyetlidir.
+// Çünkü `list.length` her defasında yeniden sayılır. Modern tarayıcılarda bu optimize edilmiştir.
+for (let i = 0, len = liste.length; i < len; i++) {
   // ...
 }
 ```
 
 **İyi:**
 ```javascript
-for (let i = 0; i < list.length; i++) {
+for (let i = 0; i < liste.length; i++) {
   // ...
 }
 ```
