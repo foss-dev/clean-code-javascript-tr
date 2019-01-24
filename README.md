@@ -719,28 +719,21 @@ if (domYaratildi(node)) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid conditionals
-This seems like an impossible task. Upon first hearing this, most people say,
-"how am I supposed to do anything without an `if` statement?" The answer is that
-you can use polymorphism to achieve the same task in many cases. The second
-question is usually, "well that's great but why would I want to do that?" The
-answer is a previous clean code concept we learned: a function should only do
-one thing. When you have classes and functions that have `if` statements, you
-are telling your user that your function does more than one thing. Remember,
-just do one thing.
+### Koşullardan Kaçının
+Bu imkansız bir iş gibi güzüküyor. Çoğu insan bunu ilk duyduğu ana kadar, " `if` ifadesi olmadan nasıl bir şey yapabilirim? " diyor. Bunun cevabı, birçok durumda aynı işi yapmak için polymorphism kullanabilirsiniz. Genellikle ikinci soru, "iyi güzel ama neden bunu yapmayı isteyeyim ki?" Bunun cevabı ise öğrendiğimiz önceki temiz kod konsepti olan: bir fonksiyon yalnızca bir şey yapmalıdır. `if` ifadesine sahip olan sınıflarınız ve fonksiyonlarınız olduğunda, kullanıcılarınıza fonksiyonunuzun birden fazla şey yaptığını söylüyorsunuz. Hatırla, sadece bir şey yap.
 
 **Kötü:**
 ```javascript
-class Airplane {
+class Ucak {
   // ...
-  getCruisingAltitude() {
+  seyirYuksekliginiGetir() {
     switch (this.type) {
       case '777':
-        return this.getMaxAltitude() - this.getPassengerCount();
+        return this.maxYuksekligiGetir() - this.yolcuSayisiniGetir();
       case 'Air Force One':
-        return this.getMaxAltitude();
+        return this.maxYuksekligiGetir();
       case 'Cessna':
-        return this.getMaxAltitude() - this.getFuelExpenditure();
+        return this.maxYuksekligiGetir() - this.yakitHarcamasiniGetir();
     }
   }
 }
@@ -748,28 +741,28 @@ class Airplane {
 
 **İyi:**
 ```javascript
-class Airplane {
+class Ucak {
   // ...
 }
 
-class Boeing777 extends Airplane {
+class Boeing777 extends Ucak {
   // ...
-  getCruisingAltitude() {
-    return this.getMaxAltitude() - this.getPassengerCount();
+  seyirYuksekliginiGetir() {
+    return this.maxYuksekligiGetir() - this.yolcuSayisiniGetir();
   }
 }
 
-class AirForceOne extends Airplane {
+class AirForceOne extends Ucak {
   // ...
-  getCruisingAltitude() {
-    return this.getMaxAltitude();
+  seyirYuksekliginiGetir() {
+    return this.maxYuksekligiGetir();
   }
 }
 
-class Cessna extends Airplane {
+class Cessna extends Ucak {
   // ...
-  getCruisingAltitude() {
-    return this.getMaxAltitude() - this.getFuelExpenditure();
+  seyirYuksekliginiGetir() {
+    return this.maxYuksekligiGetir() - this.yakitHarcamasiniGetir();
   }
 }
 ```
