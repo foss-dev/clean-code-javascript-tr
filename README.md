@@ -619,57 +619,55 @@ class SuperArray extends Array {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Favor functional programming over imperative programming
-JavaScript isn't a functional language in the way that Haskell is, but it has
-a functional flavor to it. Functional languages can be cleaner and easier to test.
-Favor this style of programming when you can.
+### Emirli programlama yerine Fonksiyonel programlamayı tercih edin 
+JavaScript, Haskell gibi fonksiyonel bir dil değil ama fonksiyonel yönleri de var. Fonksiyonel diller daha temiz ve test edilmesi daha kolay olabilir. Yapabildiğiniz zaman bu programlama stilini tercih edin.
 
 **Kötü:**
 ```javascript
-const programmerOutput = [
+const programciCiktisi = [
   {
     name: 'Uncle Bobby',
-    linesOfCode: 500
+    kodSatirlari: 500
   }, {
     name: 'Suzie Q',
-    linesOfCode: 1500
+    kodSatirlari: 1500
   }, {
     name: 'Jimmy Gosling',
-    linesOfCode: 150
+    kodSatirlari: 150
   }, {
     name: 'Gracie Hopper',
-    linesOfCode: 1000
+    kodSatirlari: 1000
   }
 ];
 
-let totalOutput = 0;
+let toplamCikti = 0;
 
-for (let i = 0; i < programmerOutput.length; i++) {
-  totalOutput += programmerOutput[i].linesOfCode;
+for (let i = 0; i < programciCiktisi.length; i++) {
+  toplamCikti += programciCiktisi[i].kodSatirlari;
 }
 ```
 
 **İyi:**
 ```javascript
-const programmerOutput = [
+const programciCiktisi = [
   {
     name: 'Uncle Bobby',
-    linesOfCode: 500
+    kodSatirlari: 500
   }, {
     name: 'Suzie Q',
-    linesOfCode: 1500
+    kodSatirlari: 1500
   }, {
     name: 'Jimmy Gosling',
-    linesOfCode: 150
+    kodSatirlari: 150
   }, {
     name: 'Gracie Hopper',
-    linesOfCode: 1000
+    kodSatirlari: 1000
   }
 ];
 
-const totalOutput = programmerOutput
-  .map(output => output.linesOfCode)
-  .reduce((totalLines, lines) => totalLines + lines);
+const toplamCikti = programciCiktisi
+  .map(cikti => cikti.kodSatirlari)
+  .reduce((toplamSatirlar, satirlar) => toplamSatirlar + satirlar);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
@@ -792,33 +790,25 @@ function nigdeyeZiyaret(arac) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid type-checking (part 2)
-If you are working with basic primitive values like strings and integers,
-and you can't use polymorphism but you still feel the need to type-check,
-you should consider using TypeScript. It is an excellent alternative to normal
-JavaScript, as it provides you with static typing on top of standard JavaScript
-syntax. The problem with manually type-checking normal JavaScript is that
-doing it well requires so much extra verbiage that the faux "type-safety" you get
-doesn't make up for the lost readability. Keep your JavaScript clean, write
-good tests, and have good code reviews. Otherwise, do all of that but with
-TypeScript (which, like I said, is a great alternative!).
+### Tip Kontrolünden Kaçının (Bölüm 2)
+Eğer strginler ve integerlar gibi temel ilkel değerlerle çalışıyorsanız ve polymorphism kullanamıyorsanız ama hala tip kontrolü yapmanız gerekiyormuş gibi hissediyorsanız TypeScript kullanmayı düşünmelisiniz. TypeScript, normal JavaScript'in mükkemel bir alternatifi, standart Javascript söz diziminin üzerine statik yazmanızı sağlar. Normal JavaScript'te manuel şekilde tip kontrolü yapmanın problemi, tip kontrlünü iyi yapmak ekstra kod kalabalığını gerektiriyor. Yapmaya çalıştığımız sahte "tip kontrolü" kaybolan okunabilirliği telafi etmiyor. JavaScript kodlarınızı temiz tutun, iyi testler yazın ve rahat kod incelemelerine sahip olun. Ayrıca, hepsini yap ama TypeScript ile yap (dediğim gibi, harika bir alternatif).
 
 **Kötü:**
 ```javascript
-function combine(val1, val2) {
-  if (typeof val1 === 'number' && typeof val2 === 'number' ||
-      typeof val1 === 'string' && typeof val2 === 'string') {
+function kombin(deger1, deger2) {
+  if (typeof deger1 === 'number' && typeof deger2 === 'number' ||
+      typeof deger1 === 'string' && typeof deger2 === 'string') {
     return val1 + val2;
   }
 
-  throw new Error('Must be of type String or Number');
+  throw new Error('String veya Number tipinde olmalıdır!');
 }
 ```
 
 **İyi:**
 ```javascript
-function combine(val1, val2) {
-  return val1 + val2;
+function kombin(deger1, deger2) {
+  return deger1 + deger2;
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
