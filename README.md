@@ -792,33 +792,25 @@ function nigdeyeZiyaret(arac) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid type-checking (part 2)
-If you are working with basic primitive values like strings and integers,
-and you can't use polymorphism but you still feel the need to type-check,
-you should consider using TypeScript. It is an excellent alternative to normal
-JavaScript, as it provides you with static typing on top of standard JavaScript
-syntax. The problem with manually type-checking normal JavaScript is that
-doing it well requires so much extra verbiage that the faux "type-safety" you get
-doesn't make up for the lost readability. Keep your JavaScript clean, write
-good tests, and have good code reviews. Otherwise, do all of that but with
-TypeScript (which, like I said, is a great alternative!).
+### Tip Kontrolünden Kaçının (Bölüm 2)
+Eğer strginler ve integerlar gibi temel ilkel değerlerle çalışıyorsanız ve polymorphism kullanamıyorsanız ama hala tip kontrolü yapmanız gerekiyormuş gibi hissediyorsanız TypeScript kullanmayı düşünmelisiniz. TypeScript, normal JavaScript'in mükkemel bir alternatifi, standart Javascript söz diziminin üzerine statik yazmanızı sağlar. Normal JavaScript'te manuel şekilde tip kontrolü yapmanın problemi, tip kontrlünü iyi yapmak ekstra kod kalabalığını gerektiriyor. Yapmaya çalıştığımız sahte "tip kontrolü" kaybolan okunabilirliği telafi etmiyor. JavaScript kodlarınızı temiz tutun, iyi testler yazın ve rahat kod incelemelerine sahip olun. Ayrıca, hepsini yap ama TypeScript ile yap (dediğim gibi, harika bir alternatif).
 
 **Kötü:**
 ```javascript
-function combine(val1, val2) {
-  if (typeof val1 === 'number' && typeof val2 === 'number' ||
-      typeof val1 === 'string' && typeof val2 === 'string') {
+function kombin(deger1, deger2) {
+  if (typeof deger1 === 'number' && typeof deger2 === 'number' ||
+      typeof deger1 === 'string' && typeof deger2 === 'string') {
     return val1 + val2;
   }
 
-  throw new Error('Must be of type String or Number');
+  throw new Error('String veya Number tipinde olmalıdır!');
 }
 ```
 
 **İyi:**
 ```javascript
-function combine(val1, val2) {
-  return val1 + val2;
+function kombin(deger1, deger2) {
+  return deger1 + deger2;
 }
 ```
 **[⬆ en başa dön](#içindekiler)**
