@@ -719,7 +719,7 @@ if (domYaratildi(node)) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Koşullardan Kaçın
+### Koşullardan Kaçının
 Bu imkansız bir iş gibi güzüküyor. Çoğu insan bunu ilk duyduğu ana kadar, " `if` ifadesi olmadan nasıl bir şey yapabilirim? " diyor. Bunun cevabı, birçok durumda aynı işi yapmak için polymorphism kullanabilirsiniz. Genellikle ikinci soru, "iyi güzel ama neden bunu yapmayı isteyeyim ki?" Bunun cevabı ise öğrendiğimiz önceki temiz kod konsepti olan: bir fonksiyon yalnızca bir şey yapmalıdır. `if` ifadesine sahip olan sınıflarınız ve fonksiyonlarınız olduğunda, kullanıcılarınıza fonksiyonunuzun birden fazla şey yaptığını söylüyorsunuz. Hatırla, sadece bir şey yap.
 
 **Kötü:**
