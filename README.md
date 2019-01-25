@@ -1117,41 +1117,38 @@ const araba = new Araba('Ford','F-150','kirmizi')
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Prefer composition over inheritance
-As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
-you should prefer composition over inheritance where you can. There are lots of
-good reasons to use inheritance and lots of good reasons to use composition.
-The main point for this maxim is that if your mind instinctively goes for
-inheritance, try to think if composition could model your problem better. In some
-cases it can.
+### Miras(Kalıtım) yerine Kompozisyonu tercih edin
+Gang of Four tarafından [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) da ünlü olarak belirtildiği gibi, yapabildiğiniz yerlerde miras(kalıtım) yerine kompozisyonu tercih etmelisiniz. Miras(kalıtım)ı
+kullanmak için birçok iyi sebep olduğu gibi kompozisyonu kullanmak içinde birçok iyi sebep var. Bu kural için
+asıl nokta, eğer aklınız içgüdüsel olarak miras(kalıtım)ı tercih ediyorsa, kompozisyonun, probleminizi daha iyi
+modelleyebileceğini düşünmeye çalışın. Bazı durumlarda bu olabilir.
 
-You might be wondering then, "when should I use inheritance?" It
-depends on your problem at hand, but this is a decent list of when inheritance
-makes more sense than composition:
+"Miras(kalıtım)ı ne zaman kullanmalıyım?" diye merak ediyor olabilirsiniz. Bu durum elinizdeki soruna bağlı ama
+bu, ne zaman miras(kalıtım)ın kompozisyondan daha anlamlı olduğunun kabul edilebilir bir listesi.
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a"
-relationship (Human->Animal vs. User->UserDetails).
-2. You can reuse code from the base classes (Humans can move like all animals).
-3. You want to make global changes to derived classes by changing a base class.
-(Change the caloric expenditure of all animals when they move).
+1. Miras(kalıtım)ınız, "-dır, -dir" ilişkisini sağlıyor ve "sahiplik" ilişkisinin sağlamıyor.
+(İnsan->Hayvan vs. Kullanıcı->KullanıcıDetayları)
+2. Kodu temel sınıflardan yeniden kullanabilirsiniz. (İnsanlar, tüm hayvanlar gibi hareket edebilir)
+3. Bir temel sınıfı değiştirerek türetilmiş sınıflarda genel değişiklikler yapmak istiyorsunuz.
+(Hayvanların hareket ettiğinde harcadığı kaloriyi değiştirmek)
 
 **Kötü:**
 ```javascript
-class Employee {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
+class Personel {
+  constructor(isim, mail) {
+    this.isim = isim;
+    this.mail = mail;
   }
 
   // ...
 }
 
-// Bad because Employees "have" tax data. EmployeeTaxData is not a type of Employee
-class EmployeeTaxData extends Employee {
-  constructor(ssn, salary) {
+// Kötü çünkü Personeller vergi verisine "sahip". PersonelVergiVerileri, bir Personel türü değil.
+class PersonelVergiVerileri extends Personel {
+  constructor(ssn, maas) {
     super();
-    this.ssn = ssn;
-    this.salary = salary;
+    this.ssn = ssn; // sosyal güvenlik numarası
+    this.maas = maas;
   }
 
   // ...
@@ -1160,23 +1157,23 @@ class EmployeeTaxData extends Employee {
 
 **İyi:**
 ```javascript
-class EmployeeTaxData {
-  constructor(ssn, salary) {
-    this.ssn = ssn;
-    this.salary = salary;
+class PersonelVergiVerileri {
+  constructor(ssn, maas) {
+    this.ssn = ssn; // sosyal güvenlik numarası
+    this.maas = maas;
   }
 
   // ...
 }
 
-class Employee {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
+class Personel {
+  constructor(isim, mail) {
+    this.isim = isim;
+    this.mail = mail;
   }
 
-  setTaxData(ssn, salary) {
-    this.taxData = new EmployeeTaxData(ssn, salary);
+  vergiVerisiniBelirle(ssn, maas) {
+    this.vergiVerisi = new PersonelVergiVerileri(ssn, maas);
   }
   // ...
 }
