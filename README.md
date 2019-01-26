@@ -430,7 +430,7 @@ function personelListesiniGoster(personeller) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Varsayılan Nesneleri Object.assign ile Atayın
+### Varsayılan Nesneleri Object.assign ile Atayın!
 
 **Kötü:**
 ```javascript
