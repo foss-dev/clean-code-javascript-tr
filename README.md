@@ -1322,118 +1322,111 @@ class HttpRequester {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Liskov Substitution Principle (LSP)
-This is a scary term for a very simple concept. It's formally defined as "If S
-is a subtype of T, then objects of type T may be replaced with objects of type S
-(i.e., objects of type S may substitute objects of type T) without altering any
-of the desirable properties of that program (correctness, task performed,
-etc.)." That's an even scarier definition.
+### Liskov Yer Değiştirme Prensibi (LSP)
+Bu terim bu kadar basit bir konsept için korkutucu. Resmi olarak tanımı şöyle: "Eğer S, T'nin alt türü ise, programın istenilen özelliklerinden herhangi birini değiştirmeden(doğruluğunu, yaptığı işi vb.) 
+T tipindeki nesneler S tipindeki nesneler ile yer değiştirebilir (yani, S tipindeki nesneler T tipindeki nesnelerin yerine geçebilir).  Bu daha da korkutucu bir tanım.
 
-The best explanation for this is if you have a parent class and a child class,
-then the base class and child class can be used interchangeably without getting
-incorrect results. This might still be confusing, so let's take a look at the
-classic Square-Rectangle example. Mathematically, a square is a rectangle, but
-if you model it using the "is-a" relationship via inheritance, you quickly
-get into trouble.
+Bunun için en iyi açıklama: eğer bir ebeveyn sınıfınız ve alt sınıfınız varsa, temel sınıf ve alt sınıf, yanlış sonuçlar ortaya koymadan birbirlerinin yerine kullanılabilir. Hala kafa karıştırıcı olabilir, 
+o zaman hadi klasik Kare-Dikdörtgen örneğine göz atalım. Matematiksel olarak kare bir dikdörtgendir ama eğer bunu kalıtım yoluyla, "is-a" ilişkisi kullanarak modellerseniz başınızın belaya girmesi çok gecikmeyecektir.
 
 **Kötü:**
 ```javascript
-class Rectangle {
+class Dikdortgen {
   constructor() {
-    this.width = 0;
-    this.height = 0;
+    this.genislik = 0;
+    this.yukseklik = 0;
   }
 
-  setColor(color) {
+  renginiBelirle(renk) {
     // ...
   }
 
-  render(area) {
+  olustur(alan) {
     // ...
   }
 
-  setWidth(width) {
-    this.width = width;
+  genisligiBelirle(genislik) {
+    this.genislik = genislik;
   }
 
-  setHeight(height) {
-    this.height = height;
+  yuksekligiBelirle(yukseklik) {
+    this.yukseklik = yukseklik;
   }
 
-  getArea() {
-    return this.width * this.height;
-  }
-}
-
-class Square extends Rectangle {
-  setWidth(width) {
-    this.width = width;
-    this.height = width;
-  }
-
-  setHeight(height) {
-    this.width = height;
-    this.height = height;
+  alanHesapla() {
+    return this.genislik * this.yukseklik;
   }
 }
 
-function renderLargeRectangles(rectangles) {
-  rectangles.forEach((rectangle) => {
-    rectangle.setWidth(4);
-    rectangle.setHeight(5);
-    const area = rectangle.getArea(); // BAD: Returns 25 for Square. Should be 20.
-    rectangle.render(area);
+class Kare extends Dikdortgen {
+  genisligiBelirle(genislik) {
+    this.genislik = genislik;
+    this.yukseklik = genislik;
+  }
+
+  yuksekligiBelirle(yukseklik) {
+    this.genislik = yukseklik;
+    this.yukseklik = yukseklik;
+  }
+}
+
+function genisDikdortgenlerOlustur(dikdortgenler) {
+  dikdortgenler.forEach((dikdortgen) => {
+    dikdortgen.genisligiBelirle(4);
+    dikdortgen.yuksekligiBelirle(5);
+    const alan = dikdortgen.alanHesapla(); // KÖTÜ: Kare için 25 döner. 20 olmalıydı.
+    dikdortgen.olustur(alan);
   });
 }
 
-const rectangles = [new Rectangle(), new Rectangle(), new Square()];
-renderLargeRectangles(rectangles);
+const dikdortgenler = [new Dikdortgen(), new Dikdortgen(), new Kare()];
+genisDikdortgenlerOlustur(dikdortgenler);
 ```
 
 **İyi:**
 ```javascript
-class Shape {
-  setColor(color) {
+class Sekil {
+  renginiAyarla(renk) {
     // ...
   }
 
-  render(area) {
+  olustur(alan) {
     // ...
   }
 }
 
-class Rectangle extends Shape {
-  constructor(width, height) {
+class Dikdortgen extends Sekil {
+  constructor(genislik, yukseklik) {
     super();
-    this.width = width;
-    this.height = height;
+    this.genislik = genislik;
+    this.yukseklik = yukseklik;
   }
 
-  getArea() {
-    return this.width * this.height;
+  alanHesapla() {
+    return this.genislik * this.yukseklik;
   }
 }
 
-class Square extends Shape {
-  constructor(length) {
+class Kare extends Sekil {
+  constructor(uzunluk) {
     super();
-    this.length = length;
+    this.uzunluk = uzunluk;
   }
 
-  getArea() {
-    return this.length * this.length;
+  alanHesapla() {
+    return this.uzunluk * this.uzunluk;
   }
 }
 
-function renderLargeShapes(shapes) {
-  shapes.forEach((shape) => {
-    const area = shape.getArea();
-    shape.render(area);
+function genisSekillerOlustur(sekiller) {
+  sekiller.forEach((sekil) => {
+    const alan = sekil.alanHesapla();
+    sekil.olustur(alan);
   });
 }
 
-const shapes = [new Rectangle(4, 5), new Rectangle(4, 5), new Square(5)];
-renderLargeShapes(shapes);
+const sekiller = [new Dikdortgen(4, 5), new Dikdortgen(4, 5), new Kare(5)];
+genisSekillerOlustur(sekiller);
 ```
 **[⬆ en başa dön](#içindekiler)**
 
