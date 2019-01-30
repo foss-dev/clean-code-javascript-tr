@@ -1204,15 +1204,8 @@ class Employee {
 **[⬆ en başa dön](#içindekiler)**
 
 ## **SOLID**
-### Single Responsibility Principle (SRP)
-As stated in Clean Code, "There should never be more than one reason for a class
-to change". It's tempting to jam-pack a class with a lot of functionality, like
-when you can only take one suitcase on your flight. The issue with this is
-that your class won't be conceptually cohesive and it will give it many reasons
-to change. Minimizing the amount of times you need to change a class is important.
-It's important because if too much functionality is in one class and you modify
-a piece of it, it can be difficult to understand how that will affect other
-dependent modules in your codebase.
+### Tek Sorumluluk Prensibi (TSP)
+Temiz Kod'da belirtildiği gibi, "Bir sınıfın değişebilmesi için asla birden fazla sebep olmamalıdır". Birçok işlevsellikle birlikte bir sınıfı sıkıştırmak cezbedicidir, tıpkı bir uçuşda yalnızca bir valiz almak gibi. Bununla ilgili mesele, sınıfınızın kavramsal olarak uyum sağlamayacağı ve değişmesi için birçok neden vereceğidir. Bir sınıfı değiştirmeniz için gereken süreyi en aza indirgemek önemlidir. Çünkü çok fazla işlevsellik bir sınıfta bulunuyorsa ve siz bir kısmını değiştirirseniz, bu değişikliğin kod tabanınızdaki diğer bağımlı modülleri nasıl etkileyeceğini anlamanız zor olabilir.
 
 **Kötü:**
 ```javascript
