@@ -54,7 +54,7 @@ musteriKayitlariGetir();
 ```javascript
 kullaniciGetir();
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Aranabilir isimler kullanın
 Yazacağımızdan daha fazla kod okuyacağız. Bu yazdığımız kodun okunabilir ve aranabilir olması açısından önemlidir. Değişkenleri kötü bir şekilde adlandırmayarak programımızı anlamaya çalışan kod okuyucularına zarar vermeyiz. İsimleri aranabilir yapın. [buddy.js](https://github.com/danielstjules/buddy.js) ve [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md) gibi araçlar tanımlanmamış sabit değerleri constant olarak tanımlamanıza yardımcı olabilir.
@@ -74,7 +74,7 @@ const BIR_GUNDEKI_MILISANIYELER = 86400000;
 setTimeout(havalandirmayiCalistir, BIR_GUNDEKI_MILISANIYELER);
 
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Açıklayıcı değişkenler kullanın
 **Kötü:**
@@ -91,7 +91,7 @@ const sehirPostaKoduRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 const [, sehir, postaKodu] = adres.match(sehirPostaKoduRegex) || [];
 sehirPostaKodunuKaydet(sehir, postaKodu);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Zihinsel Haritalamadan Kaçının
 Açık olan kapalı olandan daha iyidir
@@ -122,7 +122,7 @@ lokasyonlar.forEach((lokasyon) => {
   oneCikar(lokasyon);
 });
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Gereksiz içerik eklemeyin
 Eğer sınıf ya da nesne adından ne yaptığı anlaşılıyorsa, tekrar olarak değişkenler içinde onu anlatan isimlendirmeler yapmayın.
@@ -152,7 +152,7 @@ function arabayiBoya(araba) {
   araba.renk = 'Kırmızı';
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Kısa Mantıksal İfadeler ya da Koşullar Yerine Varsayılan Argümanlar Kullanın
 Varsayılan argümanlar çoğunlukla kısa mantıksa ifadelerden daha temiz bir kullanıma sahiptir. Varsayılan argümanların sadece undefined argümanlar geçerliyse çalışacağını unutmayın. Diğer falsy olarak kabul edilen değerler varsayılan argümanı değiştirecektir. Bunlar `''`, `""`, `false`, `null`, `0`, ve `NaN` olarak gösterilebilir.
@@ -173,7 +173,7 @@ function fabrikaOlustur(isim = 'Önceki Yazılımcı AŞ') {
 }
 
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **Fonksiyonlar**
 ### Fonksiyon Argümanları (İdeal olanı 2 ya da daha az)
@@ -223,7 +223,7 @@ menuOlustur({
   iptalEdilebilir: true
 });
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ### Fonksiyonlar Tek Bir Şey Yapmalı
@@ -254,7 +254,7 @@ function aktifMusteriMi(musteri) {
   return musteriKaydi.aktifMi();
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Fonksiyon İsimleri Ne Yaptıklarını Söylemeli
 
@@ -279,7 +279,7 @@ function tariheAyEkle(ay, tarih) {
 const tarih = new Date();
 tariheAyEkle(1, tarih);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Fonksiyonlar bir seviye soyutlaştırılmalıdır
 Fonkiyonunuz bir seviyeden fazla soyutlaşmış ise, gereğinden fazla
@@ -347,7 +347,7 @@ function analizEt(simgeler) {
   return ast;
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Yinelenen kodu kaldırın
 Yinelenen kodu kaldırmak için elinizden gelenin en iyisini yapın. Tekrarlanan kodun
@@ -428,7 +428,7 @@ function personelListesiniGoster(personeller) {
   });
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Varsayılan Nesneleri Object.assign ile Atayın!
 
@@ -474,7 +474,7 @@ function menuOlustur(ayar) {
 
 menuOlustur(menuAyari);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ### Bayrakları Fonksiyon Argümanları Olarak Kullanmayın
@@ -501,7 +501,7 @@ function geciciDosyaOlustur(isim) {
   dosyaOlustur(`./temp/${isim}`);
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Avoid Side Effects (part 1)
 A function produces a side effect if it does anything other than take a value in
@@ -546,7 +546,7 @@ const newName = splitIntoFirstAndLastName(name);
 console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Avoid Side Effects (part 2)
 In JavaScript, primitives are passed by value and objects/arrays are passed by
@@ -595,7 +595,7 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Global fonksiyonlar yazma.
 Javascript'te globalleri kirletmek kötü bir uygulamadır çünkü diğer bir kütüphaneyle çakışabilirsiniz ve API kullanıcınız uygulamayı canlı ortama sunduğunda alacağı bir hataya kadar bu durumdan haberdar olmayabilir. Bir örnek üzerinden düşünelim: eğer JavaScript'in sahip olduğu Array metodunu, iki dizi arasındaki farkı gösteren bir `diff` metoduna sahip olacak şekilde genişletmek isteseydik? `Array.prototype` a yeni bir fonksiyon yazabilirsin, ama bu, aynı şeyi yapmaya çalışan başka bir kütüphane ile çakışabilir. Ya başka bir kütüphane `diff` metodunu, bir dizinin ilk elemanı ile son elemanı arasındaki farkı bulmak için kullanıyor olsaydı? Bu yüzden ES2015/ES6 sınıflarını kullanmak ve basitçe `Array` i kalıtımla almak çok daha iyi olacaktır. 
@@ -617,7 +617,7 @@ class SuperArray extends Array {
   }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Emirli programlama yerine Fonksiyonel programlamayı tercih edin 
 JavaScript, Haskell gibi fonksiyonel bir dil değil ama fonksiyonel yönleri de var. Fonksiyonel diller daha temiz ve test edilmesi daha kolay olabilir. Yapabildiğiniz zaman bu programlama stilini tercih edin.
@@ -669,7 +669,7 @@ const toplamCikti = programciCiktisi
   .map(cikti => cikti.kodSatirlari)
   .reduce((toplamSatirlar, satirlar) => toplamSatirlar + satirlar);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Encapsulate conditionals
 
@@ -690,7 +690,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Negatif Koşullardan Kaçının
 
@@ -715,7 +715,7 @@ if (domYaratildi(node)) {
   // ...
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Koşullardan Kaçının
 Bu imkansız bir iş gibi güzüküyor. Çoğu insan bunu ilk duyduğu ana kadar, " `if` ifadesi olmadan nasıl bir şey yapabilirim? " diyor. Bunun cevabı, birçok durumda aynı işi yapmak için polymorphism kullanabilirsiniz. Genellikle ikinci soru, "iyi güzel ama neden bunu yapmayı isteyeyim ki?" Bunun cevabı ise öğrendiğimiz önceki temiz kod konsepti olan: bir fonksiyon yalnızca bir şey yapmalıdır. `if` ifadesine sahip olan sınıflarınız ve fonksiyonlarınız olduğunda, kullanıcılarınıza fonksiyonunuzun birden fazla şey yaptığını söylüyorsunuz. Hatırla, sadece bir şey yap.
@@ -764,7 +764,7 @@ class Cessna extends Ucak {
   }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Tip Kontrolünden Kaçının (Bölüm 1)
 JavaScript tip güvensiz bir dildir, yani fonksiyonlarınız herhangi bir tipte argüman alabilir.
@@ -788,7 +788,7 @@ function nigdeyeZiyaret(arac) {
   arac.hareketEt(this.mevcutLokasyon, new Lokasyon('nigde'));
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Tip Kontrolünden Kaçının (Bölüm 2)
 Eğer strginler ve integerlar gibi temel ilkel değerlerle çalışıyorsanız ve polymorphism kullanamıyorsanız ama hala tip kontrolü yapmanız gerekiyormuş gibi hissediyorsanız TypeScript kullanmayı düşünmelisiniz. TypeScript, normal JavaScript'in mükkemel bir alternatifi, standart Javascript söz diziminin üzerine statik yazmanızı sağlar. Normal JavaScript'te manuel şekilde tip kontrolü yapmanın problemi, tip kontrlünü iyi yapmak ekstra kod kalabalığını gerektiriyor. Yapmaya çalıştığımız sahte "tip kontrolü" kaybolan okunabilirliği telafi etmiyor. JavaScript kodlarınızı temiz tutun, iyi testler yazın ve rahat kod incelemelerine sahip olun. Ayrıca, hepsini yap ama TypeScript ile yap (dediğim gibi, harika bir alternatif).
@@ -811,7 +811,7 @@ function kombin(deger1, deger2) {
   return deger1 + deger2;
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Aşırı Optimizasyon Yapmayın
 Modern tarayıcılar çalışma anında arkaplanda çok fazla optimizasyon yaparlar.
@@ -833,7 +833,7 @@ for (let i = 0; i < liste.length; i++) {
   // ...
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Ölü Kodları Silin
 Ölü kod da tekrarlı kodlar kadar kötüdür. Kodlarınızda ölü kod saklamanız için herhangi bir neden yoktur.
@@ -863,7 +863,7 @@ function yeniHttpRequestModulu(url) {
 const istek = yeniHttpRequestModulu;
 envanterTakibi('elmalar', istek, 'www.envantertakibi.com');
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **Nesneler ve Veri Yapıları**
 ### Setter ve Getter kullanın
@@ -921,7 +921,7 @@ function bankaHesabiOlustur() {
 const hesap = bankaHesabiOlustur();
 hesap.setBakiye(100);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ### Nesnelerin private üyelere sahip olmasını sağlayın.
@@ -959,7 +959,7 @@ console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
 delete calisan.isim;
 console.log(`Calisanin ismi: ${calisan.getIsim()}`); // Calisanin ismi: John Doe
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ## **Sınıflar**
@@ -1036,7 +1036,7 @@ class Human extends Mammal {
   speak() { /* ... */ }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ### Metod zincirleme yöntemini kullanın
@@ -1115,7 +1115,7 @@ const araba = new Araba('Ford','F-150','kirmizi')
   .setRenk('pembe')
   .kaydet();
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Miras(Kalıtım) yerine Kompozisyonu tercih edin
 Gang of Four tarafından [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) da ünlü olarak belirtildiği gibi, yapabildiğiniz yerlerde miras(kalıtım) yerine kompozisyonu tercih etmelisiniz. Miras(kalıtım)ı
@@ -1178,7 +1178,7 @@ class Personel {
   // ...
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **SOLID**
 ### Tek Sorumluluk Prensibi (TSP)
@@ -1229,7 +1229,7 @@ class UserSettings {
   }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Açık/Kapalı Prensibi
 Bertrand Meyer tarafından belirtildiği gibi, "yazılım varlıkları (classlar, modüller, fonksiyonlar vs.) gelişime açık, değişime kapalı olmalıdır." Peki bu ne anlamaya geliyor? Bu ilke temel olarak, kullanıcıların varolan kodu değiştirmeden yeni işlevler ekleyebilmesini sağlamamız gerektiğini belirtir.
@@ -1313,7 +1313,7 @@ class HttpRequester {
   }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Liskov Yer Değiştirme Prensibi (LSP)
 Bu terim bu kadar basit bir konsept için korkutucu. Resmi olarak tanımı şöyle: "Eğer S, T'nin alt türü ise, programın istenilen özelliklerinden herhangi birini değiştirmeden(doğruluğunu, yaptığı işi vb.) 
@@ -1421,7 +1421,7 @@ function genisSekillerOlustur(sekiller) {
 const sekiller = [new Dikdortgen(4, 5), new Dikdortgen(4, 5), new Kare(5)];
 genisSekillerOlustur(sekiller);
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Interface Segregation Principle (ISP)
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
@@ -1496,7 +1496,7 @@ const $ = new DOMTraverser({
   }
 });
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Dependency Inversion Principle (DIP)
 This principle states two essential things:
@@ -1591,7 +1591,7 @@ class InventoryRequesterV2 {
 const inventoryTracker = new InventoryTracker(['apples', 'bananas'], new InventoryRequesterV2());
 inventoryTracker.requestItems();
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **Testing**
 Testing is more important than shipping. If you have no tests or an
@@ -1658,7 +1658,7 @@ describe('MakeMomentJSGreatAgain', () => {
   });
 });
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **Eşzamanlılık**
 ### Promiseleri kullan,Callbackleri değil.
@@ -1703,7 +1703,7 @@ get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
   });
 
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Async/Await ,Promise'den daha temizdir.
 Promiseler Callbacklere nazaran daha temizdir, fakat ES2017/ES8 daha 
@@ -1745,7 +1745,7 @@ async function temizKodMakalesiniAl() {
   }
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ## **Hata Yakalama**
@@ -1813,7 +1813,7 @@ verileriGetir()
   });
 ```
 
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ## **Yazım Şekli**
@@ -1860,7 +1860,7 @@ function veritabaniniKurtar() {}
 class Hayvan {}
 class Alpaka {}
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 
 ### Çağırılan ve çağıran fonksiyonlar birbirine yakın olmalıdır.
@@ -1945,7 +1945,7 @@ const degerlendirme = new PerformansDegerlendirmesi(calisan);
 degerlendirme.performansDegerlendirmesi();
 ```
 
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## **Yorumlar**
 ### Sadece iş mantığının karmaşık olduğu durumlarda yorumları kullanın.
@@ -1993,7 +1993,7 @@ function ozetCikar(veri) {
 }
 
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Kod tabanınızda yorum satırına alınmış kod bırakmayın.
 Sürüm kontrol sistemleri bu nedenle var. Eski kodu geçmişinizde bırakın.
@@ -2010,7 +2010,7 @@ birSeyYap();
 ```javascript
 birSeyYap();
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Yorum satırını günlüğe çevirmeyin
 Sürüm kontrol sistemlerini kullanmanız gerektiğini hatırlayın! Ölü koda, yorum satırına alınmış koda ve 
@@ -2035,7 +2035,7 @@ function topla(a, b) {
   return a + b;
 }
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ### Konum işaretleyicilerini kullanmaktan kaçının
 Onlar sadece kuru gürültüden ibaret. Fonksiyonlar ve değişkenlerin uygun girintilemeler,
@@ -2070,7 +2070,7 @@ const eylemler = function() {
   // ...
 };
 ```
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
 
 ## Translation
 
@@ -2094,4 +2094,4 @@ This is also available in other languages:
   - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**:
   [frappacchio/clean-code-javascript/](https://github.com/frappacchio/clean-code-javascript/)
 
-**[⬆ en başa dön](#içindekiler)**
+**[⬆ en başa dön](#i̇çindekiler)**
