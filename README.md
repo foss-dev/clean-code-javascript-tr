@@ -503,48 +503,49 @@ function geciciDosyaOlustur(isim) {
 ```
 **[⬆ en başa dön](#içindekiler)**
 
-### Avoid Side Effects (part 1)
-A function produces a side effect if it does anything other than take a value in
-and return another value or values. A side effect could be writing to a file,
-modifying some global variable, or accidentally wiring all your money to a
-stranger.
+### Yan Etkilerden Kaçının (Kısım 1)
 
-Now, you do need to have side effects in a program on occasion. Like the previous
-example, you might need to write to a file. What you want to do is to
-centralize where you are doing this. Don't have several functions and classes
-that write to a particular file. Have one service that does it. One and only one.
+Bir fonksiyon, değer alıp başka değer veya değerler döndürmek dışında 
+bir şey yapıyorsa yan etki oluşturur. Bu yan etki, dosyalara bir şeyler yazmak,
+bazı global değişkenleri değiştirmek, güncellemek veya yanlışlıkla bütün paranızı bir 
+yabancıya aktarmak olabilir.
 
-The main point is to avoid common pitfalls like sharing state between objects
-without any structure, using mutable data types that can be written to by anything,
-and not centralizing where your side effects occur. If you can do this, you will
-be happier than the vast majority of other programmers.
+Zaman zaman yazdığınız programda yan etkilerin olması gerekir. Mesela, bir önceki 
+örnekte işlenildiği gibi dosyalara bir şeyler yazmanız gerekebilir. Yapmanız gereken şey ise
+yan etki oluşturan işlemleri yaptığınız yeri merkezileştirmektir. Örneğin belirli bir dosya üzerinde 
+işlem yapan birkaç fonksiyon veya sınıfınız olmasın. Sadece bir servis bunu yapsın. Evet, sadece bir servis.
+
+Buradaki ana fikir, herhangi bir yapıya sahip olmayan nesneler arasındaki stateleri paylaşmak, 
+herhangi bir şey tarafından değiştirilebilir veri tiplerini kullanmak veya yan etkilerin oluştuğu
+yerleri merkezileştirmemek gibi yaygın hatalardan kaçınmaktır. Eğer bunları yapabilirseniz, 
+diğer programcıların büyük bir çoğunluğundan daha mutlu olacaksınız.
 
 **Kötü:**
 ```javascript
 // Global variable referenced by following function.
 // If we had another function that used this name, now it'd be an array and it could break it.
-let name = 'Ryan McDermott';
+let isim = 'Ali Veli';
 
-function splitIntoFirstAndLastName() {
-  name = name.split(' ');
+function isimVeSoyismiAyir() {
+  isim = isim.split(' ');
 }
 
-splitIntoFirstAndLastName();
+isimVeSoyismiAyir();
 
-console.log(name); // ['Ryan', 'McDermott'];
+console.log(isim); // ['Ali', 'Veli'];
 ```
 
 **İyi:**
 ```javascript
-function splitIntoFirstAndLastName(name) {
-  return name.split(' ');
+function isimVeSoyismiAyir(isim) {
+  return isim.split(' ');
 }
 
-const name = 'Ryan McDermott';
-const newName = splitIntoFirstAndLastName(name);
+const isim = 'Ali Veli';
+const yeniIsim = isimVeSoyismiAyir(isim);
 
-console.log(name); // 'Ryan McDermott';
-console.log(newName); // ['Ryan', 'McDermott'];
+console.log(isim); // 'Ali Veli';
+console.log(yeniIsim); // ['Ali', 'Veli'];
 ```
 **[⬆ en başa dön](#içindekiler)**
 
