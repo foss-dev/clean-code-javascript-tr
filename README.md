@@ -185,7 +185,7 @@ edeceğinizden dolayı tonlarca teste maruz kalabilirsiniz.
 Bir veya iki argüman normal olan durumdur, mümkün olduğunca üçüncüden kaçınılmadılır.
 Bundan daha fazla olanlar iyileştirilmelidir. Eğer fonksiyonunuz ikiden fazla
 argüman alıyorsa, muhtemelen yapması gerekenden fazla işi yapmaya çalışıyordur.
-Daha fazla argümana ihtiyacınız olduğunuz durumlarda daha kapsamlı bir nesne
+Daha fazla argümana ihtiyacınız olduğu durumlarda daha kapsamlı bir nesne
 kullanmak yeterli olacaktır.
 
 Javascript size anında nesne oluşturma kabiliyetini verdiğinden dolayı, daha fazla
