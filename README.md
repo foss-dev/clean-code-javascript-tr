@@ -185,7 +185,7 @@ edeceğinizden dolayı tonlarca teste maruz kalabilirsiniz.
 Bir veya iki argüman normal olan durumdur, mümkün olduğunca üçüncüden kaçınılmadılır.
 Bundan daha fazla olanlar iyileştirilmelidir. Eğer fonksiyonunuz ikiden fazla
 argüman alıyorsa, muhtemelen yapması gerekenden fazla işi yapmaya çalışıyordur.
-Daha fazla argümana ihtiyacınız olduğunuz durumlarda daha kapsamlı bir nesne
+Daha fazla argümana ihtiyacınız olduğu durumlarda daha kapsamlı bir nesne
 kullanmak yeterli olacaktır.
 
 Javascript size anında nesne oluşturma kabiliyetini verdiğinden dolayı, daha fazla
@@ -227,7 +227,7 @@ menuOlustur({
 
 
 ### Fonksiyonlar Tek Bir Şey Yapmalı
-Bu yazılım mühendisliğinde en önemli kuraldır. Fonksiyonlar birden fazla iş yaptığında, onları düzenlemek, test etmek ve hakkında fikir sahibi olmak oldukça zorlaşır. Bir fonksiyonu izole ettiğinizde, daha kolay refactor edilebilir ve daha temiz, okunabilir bir kod haline gelir. Bu kılavuzdan aldığınız tek bilgi bu olsa bile birçok geliştiricinin önde olacaksınız.
+Bu yazılım mühendisliğinde en önemli kuraldır. Fonksiyonlar birden fazla iş yaptığında, onları düzenlemek, test etmek ve hakkında fikir sahibi olmak oldukça zorlaşır. Bir fonksiyonu izole ettiğinizde, daha kolay refactor edilebilir ve daha temiz, okunabilir bir kod haline gelir. Bu kılavuzdan aldığınız tek bilgi bu olsa bile birçok geliştiricinin önünde olacaksınız.
 
 **Kötü:**
 ```javascript
